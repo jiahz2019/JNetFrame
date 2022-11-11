@@ -1,2 +1,0 @@
-2022-10-29 22:20:37 [1001ms]	728571	brand_new_threa	0	[FATAL]	[root]	tests/test_log.cc:41	fatal msg
-2022-10-29 22:20:37 [1001ms]	728571	brand_new_threa	0	[ERROR]	[root]	tests/test_log.cc:42	err msg
