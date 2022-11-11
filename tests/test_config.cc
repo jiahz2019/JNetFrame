@@ -1,41 +1,38 @@
-/**
- * @file test_config.cc
- * @brief 配置模块测试
- * @version 0.1
- * @date 2021-06-13
- */
 
-#include "src/sylar.h"
+//@brief 配置模块测试
 
-sylar::Logger::ptr g_logger = SYLAR_LOG_ROOT();
 
-sylar::ConfigVar<int>::ptr g_int = 
-    sylar::Config::Lookup("global.int", (int)8080, "global int");
+#include "src/jhz.h"
 
-sylar::ConfigVar<float>::ptr g_float = 
-    sylar::Config::Lookup("global.float", (float)10.2f, "global float");
+jhz::Logger::ptr g_logger = JHZ_LOG_ROOT();
+
+jhz::ConfigVar<int>::ptr g_int = 
+    jhz::Config::Lookup("global.int", (int)8080, "global int");
+
+jhz::ConfigVar<float>::ptr g_float = 
+    jhz::Config::Lookup("global.float", (float)10.2f, "global float");
 
 // 字符串需显示构造，不能传字符串常量
-sylar::ConfigVar<std::string>::ptr g_string =
-    sylar::Config::Lookup("global.string", std::string("helloworld"), "global string");
+jhz::ConfigVar<std::string>::ptr g_string =
+    jhz::Config::Lookup("global.string", std::string("helloworld"), "global string");
 
-sylar::ConfigVar<std::vector<int>>::ptr g_int_vec = 
-    sylar::Config::Lookup("global.int_vec", std::vector<int>{1, 2, 3}, "global int vec");
+jhz::ConfigVar<std::vector<int>>::ptr g_int_vec = 
+    jhz::Config::Lookup("global.int_vec", std::vector<int>{1, 2, 3}, "global int vec");
 
-sylar::ConfigVar<std::list<int>>::ptr g_int_list = 
-    sylar::Config::Lookup("global.int_list", std::list<int>{1, 2, 3}, "global int list");
+jhz::ConfigVar<std::list<int>>::ptr g_int_list = 
+    jhz::Config::Lookup("global.int_list", std::list<int>{1, 2, 3}, "global int list");
 
-sylar::ConfigVar<std::set<int>>::ptr g_int_set = 
-    sylar::Config::Lookup("global.int_set", std::set<int>{1, 2, 3}, "global int set");
+jhz::ConfigVar<std::set<int>>::ptr g_int_set = 
+    jhz::Config::Lookup("global.int_set", std::set<int>{1, 2, 3}, "global int set");
 
-sylar::ConfigVar<std::unordered_set<int>>::ptr g_int_unordered_set = 
-    sylar::Config::Lookup("global.int_unordered_set", std::unordered_set<int>{1, 2, 3}, "global int unordered_set");
+jhz::ConfigVar<std::unordered_set<int>>::ptr g_int_unordered_set = 
+    jhz::Config::Lookup("global.int_unordered_set", std::unordered_set<int>{1, 2, 3}, "global int unordered_set");
 
-sylar::ConfigVar<std::map<std::string, int>>::ptr g_map_string2int = 
-    sylar::Config::Lookup("global.map_string2int", std::map<std::string, int>{{"key1", 1}, {"key2", 2}}, "global map string2int");
+jhz::ConfigVar<std::map<std::string, int>>::ptr g_map_string2int = 
+    jhz::Config::Lookup("global.map_string2int", std::map<std::string, int>{{"key1", 1}, {"key2", 2}}, "global map string2int");
 
-sylar::ConfigVar<std::unordered_map<std::string, int>>::ptr g_unordered_map_string2int = 
-    sylar::Config::Lookup("global.unordered_map_string2int", std::unordered_map<std::string, int>{{"key1", 1}, {"key2", 2}}, "global unordered_map string2int");
+jhz::ConfigVar<std::unordered_map<std::string, int>>::ptr g_unordered_map_string2int = 
+    jhz::Config::Lookup("global.unordered_map_string2int", std::unordered_map<std::string, int>{{"key1", 1}, {"key2", 2}}, "global unordered_map string2int");
 
 
 ////////////////////////////////////////////////////////////
@@ -62,7 +59,7 @@ public:
 };
 
 // 实现自定义配置的YAML序列化与反序列化，这部分要放在sylar命名空间中
-namespace sylar {
+namespace jhz {
 
 template<>
 class LexicalCast<std::string, Person> {
@@ -91,38 +88,38 @@ public:
     }
 };
 
-} // end namespace sylar
+} // end namespace jhz
 
 
-sylar::ConfigVar<Person>::ptr g_person = 
-    sylar::Config::Lookup("class.person", Person(), "system person");
+jhz::ConfigVar<Person>::ptr g_person = 
+    jhz::Config::Lookup("class.person", Person(), "system person");
 
-sylar::ConfigVar<std::map<std::string, Person>>::ptr g_person_map = 
-    sylar::Config::Lookup("class.map", std::map<std::string, Person>(), "system person map");
+jhz::ConfigVar<std::map<std::string, Person>>::ptr g_person_map = 
+    jhz::Config::Lookup("class.map", std::map<std::string, Person>(), "system person map");
 
-sylar::ConfigVar<std::map<std::string, std::vector<Person>>>::ptr g_person_vec_map = 
-    sylar::Config::Lookup("class.vec_map", std::map<std::string, std::vector<Person>>(), "system vec map");
+jhz::ConfigVar<std::map<std::string, std::vector<Person>>>::ptr g_person_vec_map = 
+    jhz::Config::Lookup("class.vec_map", std::map<std::string, std::vector<Person>>(), "system vec map");
 
 void test_class() {
     static uint64_t id = 0;
 
     if(!g_person->getListener(id)) {
         id = g_person->addListener([](const Person &old_value, const Person &new_value){
-            SYLAR_LOG_INFO(g_logger) << "g_person value change, old value:" << old_value.toString()
+            JHZ_LOG_INFO(g_logger) << "g_person value change, old value:" << old_value.toString()
                 << ", new value:" << new_value.toString();
         });
     }
 
-    SYLAR_LOG_INFO(g_logger) << g_person->getValue().toString();
+    JHZ_LOG_INFO(g_logger) << g_person->getValue().toString();
 
     for (const auto &i : g_person_map->getValue()) {
-        SYLAR_LOG_INFO(g_logger) << i.first << ":" << i.second.toString();
+        JHZ_LOG_INFO(g_logger) << i.first << ":" << i.second.toString();
     }
 
     for(const auto &i : g_person_vec_map->getValue()) {
-        SYLAR_LOG_INFO(g_logger) << i.first;
+        JHZ_LOG_INFO(g_logger) << i.first;
         for(const auto &j : i.second) {
-            SYLAR_LOG_INFO(g_logger) << j.toString();
+            JHZ_LOG_INFO(g_logger) << j.toString();
         }
     }
 }
@@ -153,15 +150,15 @@ std::string formatMap(const T &m) {
 }
 
 void test_config() {
-    SYLAR_LOG_INFO(g_logger) << "g_int value: " << g_int->getValue();
-    SYLAR_LOG_INFO(g_logger) << "g_float value: " << g_float->getValue();
-    SYLAR_LOG_INFO(g_logger) << "g_string value: " << g_string->getValue();
-    SYLAR_LOG_INFO(g_logger) << "g_int_vec value: " << formatArray<std::vector<int>>(g_int_vec->getValue());
-    SYLAR_LOG_INFO(g_logger) << "g_int_list value: " << formatArray<std::list<int>>(g_int_list->getValue());
-    SYLAR_LOG_INFO(g_logger) << "g_int_set value: " << formatArray<std::set<int>>(g_int_set->getValue());
-    SYLAR_LOG_INFO(g_logger) << "g_int_unordered_set value: " << formatArray<std::unordered_set<int>>(g_int_unordered_set->getValue());
-    SYLAR_LOG_INFO(g_logger) << "g_int_map value: " << formatMap<std::map<std::string, int>>(g_map_string2int->getValue());
-    SYLAR_LOG_INFO(g_logger) << "g_int_unordered_map value: " << formatMap<std::unordered_map<std::string, int>>(g_unordered_map_string2int->getValue());
+    JHZ_LOG_INFO(g_logger) << "g_int value: " << g_int->getValue();
+    JHZ_LOG_INFO(g_logger) << "g_float value: " << g_float->getValue();
+    JHZ_LOG_INFO(g_logger) << "g_string value: " << g_string->getValue();
+    JHZ_LOG_INFO(g_logger) << "g_int_vec value: " << formatArray<std::vector<int>>(g_int_vec->getValue());
+    JHZ_LOG_INFO(g_logger) << "g_int_list value: " << formatArray<std::list<int>>(g_int_list->getValue());
+    JHZ_LOG_INFO(g_logger) << "g_int_set value: " << formatArray<std::set<int>>(g_int_set->getValue());
+    JHZ_LOG_INFO(g_logger) << "g_int_unordered_set value: " << formatArray<std::unordered_set<int>>(g_int_unordered_set->getValue());
+    JHZ_LOG_INFO(g_logger) << "g_int_map value: " << formatMap<std::map<std::string, int>>(g_map_string2int->getValue());
+    JHZ_LOG_INFO(g_logger) << "g_int_unordered_map value: " << formatMap<std::unordered_map<std::string, int>>(g_unordered_map_string2int->getValue());
 
     // 自定义配置项
     test_class();
@@ -170,23 +167,23 @@ void test_config() {
 int main(int argc, char *argv[]) {
     // 设置g_int的配置变更回调函数
     g_int->addListener([](const int &old_value, const int &new_value) {
-        SYLAR_LOG_INFO(g_logger) << "g_int value changed, old_value: " << old_value << ", new_value: " << new_value;
+        JHZ_LOG_INFO(g_logger) << "g_int value changed, old_value: " << old_value << ", new_value: " << new_value;
     });
 
-    SYLAR_LOG_INFO(g_logger) << "before============================";
+    JHZ_LOG_INFO(g_logger) << "before============================";
 
     test_config();
 
     // 从配置文件中加载配置，由于更新了配置，会触发配置项的配置变更回调函数
-    sylar::EnvMgr::GetInstance()->init(argc, argv);
-    sylar::Config::LoadFromConfDir("/home/ubuntu/cworkplace/RewriteSylar/config");
-    SYLAR_LOG_INFO(g_logger) << "after============================";
+    jhz::EnvMgr::GetInstance()->init(argc, argv);
+    jhz::Config::LoadFromConfDir("/home/ubuntu/cworkplace/RewriteSylar/config");
+    JHZ_LOG_INFO(g_logger) << "after============================";
     
     test_config();
 
     // 遍历所有配置
-    sylar::Config::Visit([](sylar::ConfigVarBase::ptr var){
-        SYLAR_LOG_INFO(g_logger) << "name=" << var->getName()
+    jhz::Config::Visit([](jhz::ConfigVarBase::ptr var){
+        JHZ_LOG_INFO(g_logger) << "name=" << var->getName()
             << " description=" << var->getDescription()
             << " typename=" << var->getTypeName()
             << " value=" << var->toString()<<std::endl;

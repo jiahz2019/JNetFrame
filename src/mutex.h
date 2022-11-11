@@ -1,11 +1,8 @@
-/**
- * @file mutex.h
- * @brief 信号量，互斥锁，读写锁，范围锁模板，自旋锁，原子锁
- * @version 0.1
- * @date 2021-06-09
- */
-#ifndef __SYLAR_MUTEX_H__
-#define __SYLAR_MUTEX_H__
+
+// @brief 信号量，互斥锁，读写锁，范围锁模板，自旋锁，原子锁
+
+#ifndef __JHZ_MUTEX_H__
+#define __JHZ_MUTEX_H__
 
 #include <thread>
 #include <functional>
@@ -18,7 +15,7 @@
 
 #include "noncopyable.h"
 
-namespace sylar{
+namespace jhz{
 
 /**
  * @brief 信号量

@@ -1,12 +1,8 @@
-/**
- * @file util.h
- * @brief util函数
- * @version 0.1
- * @date 2021-06-08
- */
 
-#ifndef __SYLAR_UTIL_H__
-#define __SYLAR_UTIL_H__
+// @brief util函数
+
+#ifndef __JHZ_UTIL_H__
+#define __JHZ_UTIL_H__
 
 #include <sys/types.h>
 #include <stdint.h>
@@ -16,7 +12,7 @@
 #include <vector>
 #include <iostream>
 
-namespace sylar {
+namespace jhz {
 
 /**
  * @brief 获取线程id
@@ -288,6 +284,6 @@ public:
 
 };
 
-} // namespace sylar
+} // namespace jhz
 
-#endif // __SYLAR_UTIL_H__
+#endif // __JHZ_UTIL_H__

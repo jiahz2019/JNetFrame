@@ -1,20 +1,16 @@
-/**
- * @file fiber.h
- * @brief 协程模块
- * @details 基于ucontext_t实现，非对称协程
- * @version 0.1
- * @date 2021-06-15
- */
 
-#ifndef __SYLAR_FIBER_H__
-#define __SYLAR_FIBER_H__
+//@brief 协程模块
+
+
+#ifndef __JHZ_FIBER_H__
+#define __JHZ_FIBER_H__
 
 #include <functional>
 #include <memory>
 #include <ucontext.h>
 #include "thread.h"
 
-namespace sylar {
+namespace jhz {
 
 /**
  * @brief 协程类
@@ -135,6 +131,6 @@ private:
     bool m_runInScheduler;
 };
 
-} // namespace sylar
+} // namespace jhz
 
 #endif

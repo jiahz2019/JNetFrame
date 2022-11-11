@@ -1,0 +1,630 @@
+{
+	"artifacts" : 
+	[
+		{
+			"path" : "bin/test_address"
+		}
+	],
+	"backtrace" : 2,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_executable",
+			"sylar_add_executable",
+			"link_directories",
+			"conan_global_flags",
+			"conan_basic_setup",
+			"target_link_libraries",
+			"add_dependencies",
+			"add_compile_options",
+			"include_directories",
+			"set_property",
+			"force_redefine_file_macro_for_sources"
+		],
+		"files" : 
+		[
+			"cmake/utils.cmake",
+			"CMakeLists.txt",
+			"build/conanbuildinfo.cmake"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 1
+			},
+			{
+				"command" : 1,
+				"file" : 1,
+				"line" : 58,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 28,
+				"parent" : 1
+			},
+			{
+				"command" : 4,
+				"file" : 1,
+				"line" : 7,
+				"parent" : 0
+			},
+			{
+				"command" : 3,
+				"file" : 2,
+				"line" : 569,
+				"parent" : 3
+			},
+			{
+				"command" : 2,
+				"file" : 2,
+				"line" : 1072,
+				"parent" : 4
+			},
+			{
+				"command" : 5,
+				"file" : 0,
+				"line" : 31,
+				"parent" : 1
+			},
+			{
+				"command" : 6,
+				"file" : 0,
+				"line" : 29,
+				"parent" : 1
+			},
+			{
+				"command" : 7,
+				"file" : 2,
+				"line" : 1083,
+				"parent" : 4
+			},
+			{
+				"command" : 8,
+				"file" : 1,
+				"line" : 6,
+				"parent" : 0
+			},
+			{
+				"command" : 8,
+				"file" : 2,
+				"line" : 1065,
+				"parent" : 4
+			},
+			{
+				"command" : 10,
+				"file" : 0,
+				"line" : 30,
+				"parent" : 1
+			},
+			{
+				"command" : 9,
+				"file" : 0,
+				"line" : 19,
+				"parent" : 11
+			}
+		]
+	},
+	"compileGroups" : 
+	[
+		{
+			"compileCommandFragments" : 
+			[
+				{
+					"fragment" : "   -g   "
+				},
+				{
+					"backtrace" : 8,
+					"fragment" : "-DBOOST_STACKTRACE_ADDR2LINE_LOCATION=\\\"/usr/bin/addr2line\\\""
+				},
+				{
+					"backtrace" : 8,
+					"fragment" : "-DBOOST_STACKTRACE_USE_ADDR2LINE"
+				},
+				{
+					"backtrace" : 8,
+					"fragment" : "-DBOOST_STACKTRACE_USE_BACKTRACE"
+				},
+				{
+					"backtrace" : 8,
+					"fragment" : "-DBOOST_STACKTRACE_USE_NOOP"
+				},
+				{
+					"fragment" : "-std=gnu++17"
+				}
+			],
+			"defines" : 
+			[
+				{
+					"backtrace" : 12,
+					"define" : "__FILE__=\"tests/test_address.cc\""
+				}
+			],
+			"includes" : 
+			[
+				{
+					"backtrace" : 9,
+					"path" : "/home/ubuntu/cworkplace/JNetFrame/."
+				},
+				{
+					"backtrace" : 10,
+					"path" : "/home/ubuntu/.conan/data/boost/1.79.0/_/_/package/adf48b8e4446dcb68f440fe42ff08878d5c7feed/include"
+				},
+				{
+					"backtrace" : 10,
+					"path" : "/home/ubuntu/.conan/data/zlib/1.2.12/_/_/package/6af9cc7cb931c5ad942174fd7838eb655717c709/include"
+				},
+				{
+					"backtrace" : 10,
+					"path" : "/home/ubuntu/.conan/data/bzip2/1.0.8/_/_/package/da606cf731e334010b0bf6e85a2a6f891b9f36b0/include"
+				},
+				{
+					"backtrace" : 10,
+					"path" : "/home/ubuntu/.conan/data/libbacktrace/cci.20210118/_/_/package/6af9cc7cb931c5ad942174fd7838eb655717c709/include"
+				}
+			],
+			"language" : "CXX",
+			"sourceIndexes" : 
+			[
+				0
+			]
+		}
+	],
+	"dependencies" : 
+	[
+		{
+			"backtrace" : 7,
+			"id" : "jhz::@6890427a1f51a3e7e1df"
+		}
+	],
+	"id" : "test_address::@6890427a1f51a3e7e1df",
+	"link" : 
+	{
+		"commandFragments" : 
+		[
+			{
+				"fragment" : "-g",
+				"role" : "flags"
+			},
+			{
+				"fragment" : "-rdynamic",
+				"role" : "flags"
+			},
+			{
+				"backtrace" : 5,
+				"fragment" : "-L/home/ubuntu/.conan/data/boost/1.79.0/_/_/package/adf48b8e4446dcb68f440fe42ff08878d5c7feed/lib",
+				"role" : "libraryPath"
+			},
+			{
+				"backtrace" : 5,
+				"fragment" : "-L/home/ubuntu/.conan/data/zlib/1.2.12/_/_/package/6af9cc7cb931c5ad942174fd7838eb655717c709/lib",
+				"role" : "libraryPath"
+			},
+			{
+				"backtrace" : 5,
+				"fragment" : "-L/home/ubuntu/.conan/data/bzip2/1.0.8/_/_/package/da606cf731e334010b0bf6e85a2a6f891b9f36b0/lib",
+				"role" : "libraryPath"
+			},
+			{
+				"backtrace" : 5,
+				"fragment" : "-L/home/ubuntu/.conan/data/libbacktrace/cci.20210118/_/_/package/6af9cc7cb931c5ad942174fd7838eb655717c709/lib",
+				"role" : "libraryPath"
+			},
+			{
+				"fragment" : "-Wl,-rpath,/home/ubuntu/.conan/data/boost/1.79.0/_/_/package/adf48b8e4446dcb68f440fe42ff08878d5c7feed/lib:/home/ubuntu/.conan/data/zlib/1.2.12/_/_/package/6af9cc7cb931c5ad942174fd7838eb655717c709/lib:/home/ubuntu/.conan/data/bzip2/1.0.8/_/_/package/da606cf731e334010b0bf6e85a2a6f891b9f36b0/lib:/home/ubuntu/.conan/data/libbacktrace/cci.20210118/_/_/package/6af9cc7cb931c5ad942174fd7838eb655717c709/lib:/home/ubuntu/cworkplace/JNetFrame/build/lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "lib/libjhz.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lpthread",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lyaml-cpp",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lboost_contract",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lboost_coroutine",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lboost_fiber_numa",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lboost_fiber",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lboost_context",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lboost_graph",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lboost_iostreams",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lboost_json",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lboost_locale",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lboost_log_setup",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lboost_log",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lboost_math_c99",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lboost_math_c99f",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lboost_math_c99l",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lboost_math_tr1",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lboost_math_tr1f",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lboost_math_tr1l",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lboost_nowide",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lboost_program_options",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lboost_random",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lboost_regex",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lboost_stacktrace_addr2line",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lboost_stacktrace_backtrace",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lboost_stacktrace_basic",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lboost_stacktrace_noop",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lboost_timer",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lboost_type_erasure",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lboost_thread",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lboost_chrono",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lboost_container",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lboost_date_time",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lboost_unit_test_framework",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lboost_prg_exec_monitor",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lboost_test_exec_monitor",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lboost_exception",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lboost_wave",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lboost_filesystem",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lboost_atomic",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lboost_wserialization",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lboost_serialization",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lz",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lbz2",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lbacktrace",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-ldl",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lrt",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lpthread",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lyaml-cpp",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lboost_contract",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lboost_coroutine",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lboost_fiber_numa",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lboost_fiber",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lboost_context",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lboost_graph",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lboost_iostreams",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lboost_json",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lboost_locale",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lboost_log_setup",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lboost_log",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lboost_math_c99",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lboost_math_c99f",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lboost_math_c99l",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lboost_math_tr1",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lboost_math_tr1f",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lboost_math_tr1l",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lboost_nowide",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lboost_program_options",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lboost_random",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lboost_regex",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lboost_stacktrace_addr2line",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lboost_stacktrace_backtrace",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lboost_stacktrace_basic",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lboost_stacktrace_noop",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lboost_timer",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lboost_type_erasure",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lboost_thread",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lboost_chrono",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lboost_container",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lboost_date_time",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lboost_unit_test_framework",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lboost_prg_exec_monitor",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lboost_test_exec_monitor",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lboost_exception",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lboost_wave",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lboost_filesystem",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lboost_atomic",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lboost_wserialization",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lboost_serialization",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lz",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lbz2",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lbacktrace",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-ldl",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lrt",
+				"role" : "libraries"
+			}
+		],
+		"language" : "CXX"
+	},
+	"name" : "test_address",
+	"nameOnDisk" : "test_address",
+	"paths" : 
+	{
+		"build" : ".",
+		"source" : "."
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "Source Files",
+			"sourceIndexes" : 
+			[
+				0
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "tests/test_address.cc",
+			"sourceGroupIndex" : 0
+		}
+	],
+	"type" : "EXECUTABLE"
+}

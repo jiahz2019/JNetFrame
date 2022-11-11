@@ -1,13 +1,8 @@
-/**
- * @file servlet.h
- * @brief Servlet封装
- * @author sylar.yin
- * @email 564628276@qq.com
- * @date 2019-06-08
- * @copyright Copyright (c) 2019年 sylar.yin All rights reserved (www.sylar.top)
- */
-#ifndef __SYLAR_HTTP_SERVLET_H__
-#define __SYLAR_HTTP_SERVLET_H__
+
+ // @brief Servlet封装
+
+#ifndef __JHZ_HTTP_SERVLET_H__
+#define __JHZ_HTTP_SERVLET_H__
 
 #include <memory>
 #include <functional>
@@ -19,7 +14,7 @@
 #include "../thread.h"
 #include "../util.h"
 
-namespace sylar {
+namespace jhz {
 namespace http {
 
 /**
@@ -49,9 +44,9 @@ public:
      * @param[in] session HTTP连接
      * @return 是否处理成功
      */
-    virtual int32_t handle(sylar::http::HttpRequest::ptr request
-                   , sylar::http::HttpResponse::ptr response
-                   , sylar::http::HttpSession::ptr session) = 0;
+    virtual int32_t handle(jhz::http::HttpRequest::ptr request
+                   , jhz::http::HttpResponse::ptr response
+                   , jhz::http::HttpSession::ptr session) = 0;
                    
     /**
      * @brief 返回Servlet名称
@@ -70,9 +65,9 @@ public:
     /// 智能指针类型定义
     typedef std::shared_ptr<FunctionServlet> ptr;
     /// 函数回调类型定义
-    typedef std::function<int32_t (sylar::http::HttpRequest::ptr request
-                   , sylar::http::HttpResponse::ptr response
-                   , sylar::http::HttpSession::ptr session)> callback;
+    typedef std::function<int32_t (jhz::http::HttpRequest::ptr request
+                   , jhz::http::HttpResponse::ptr response
+                   , jhz::http::HttpSession::ptr session)> callback;
 
 
     /**
@@ -80,9 +75,9 @@ public:
      * @param[in] cb 回调函数
      */
     FunctionServlet(callback cb);
-    virtual int32_t handle(sylar::http::HttpRequest::ptr request
-                   , sylar::http::HttpResponse::ptr response
-                   , sylar::http::HttpSession::ptr session) override;
+    virtual int32_t handle(jhz::http::HttpRequest::ptr request
+                   , jhz::http::HttpResponse::ptr response
+                   , jhz::http::HttpSession::ptr session) override;
 private:
     /// 回调函数
     callback m_cb;
@@ -145,9 +140,9 @@ public:
      * @brief 构造函数
      */
     ServletDispatch();
-    virtual int32_t handle(sylar::http::HttpRequest::ptr request
-                   , sylar::http::HttpResponse::ptr response
-                   , sylar::http::HttpSession::ptr session) override;
+    virtual int32_t handle(jhz::http::HttpRequest::ptr request
+                   , jhz::http::HttpResponse::ptr response
+                   , jhz::http::HttpSession::ptr session) override;
 
     /**
      * @brief 添加servlet
@@ -241,10 +236,10 @@ private:
     /// 读写互斥量
     RWMutexType m_mutex;
     /// 精准匹配servlet MAP
-    /// uri(/sylar/xxx) -> servlet
+    /// uri(/jhz/xxx) -> servlet
     std::unordered_map<std::string, IServletCreator::ptr> m_datas;
     /// 模糊匹配servlet 数组
-    /// uri(/sylar/*) -> servlet
+    /// uri(/jhz/*) -> servlet
     std::vector<std::pair<std::string, IServletCreator::ptr> > m_globs;
     /// 默认servlet，所有路径都没匹配到时使用
     Servlet::ptr m_default;
@@ -261,9 +256,9 @@ public:
      * @brief 构造函数
      */
     NotFoundServlet(const std::string& name);
-    virtual int32_t handle(sylar::http::HttpRequest::ptr request
-                   , sylar::http::HttpResponse::ptr response
-                   , sylar::http::HttpSession::ptr session) override;
+    virtual int32_t handle(jhz::http::HttpRequest::ptr request
+                   , jhz::http::HttpResponse::ptr response
+                   , jhz::http::HttpSession::ptr session) override;
 
 private:
     std::string m_name;

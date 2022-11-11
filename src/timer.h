@@ -1,20 +1,15 @@
-/**
- * @file timer.h
- * @brief 定时器封装
- * @author sylar.yin
- * @email 564628276@qq.com
- * @date 2019-05-28
- * @copyright Copyright (c) 2019年 sylar.yin All rights reserved (www.sylar.top)
- */
-#ifndef __SYLAR_TIMER_H__
-#define __SYLAR_TIMER_H__
+
+//@brief 定时器封装
+
+#ifndef __JHZ_TIMER_H__
+#define __JHZ_TIMER_H__
 
 #include <memory>
 #include <vector>
 #include <set>
 #include "mutex.h"
 
-namespace sylar {
+namespace jhz {
 
 class TimerManager;
 /**

@@ -2,20 +2,20 @@
 #include "config.h"
 #include "log.h"
 
-namespace sylar {
+namespace jhz {
 
-static sylar::Logger::ptr g_logger = SYLAR_LOG_NAME("system");
+static jhz::Logger::ptr g_logger = JHZ_LOG_NAME("system");
 
-static sylar::ConfigVar<uint64_t>::ptr g_tcp_server_read_timeout =
-    sylar::Config::Lookup("tcp_server.read_timeout", (uint64_t)(60 * 1000 * 2),
+static jhz::ConfigVar<uint64_t>::ptr g_tcp_server_read_timeout =
+    jhz::Config::Lookup("tcp_server.read_timeout", (uint64_t)(60 * 1000 * 2),
             "tcp server read timeout");
 
-TcpServer::TcpServer(sylar::IOManager* io_worker,
-                    sylar::IOManager* accept_worker)
+TcpServer::TcpServer(jhz::IOManager* io_worker,
+                    jhz::IOManager* accept_worker)
     :m_ioWorker(io_worker)
     ,m_acceptWorker(accept_worker)
     ,m_recvTimeout(g_tcp_server_read_timeout->getValue())
-    ,m_name("sylar/1.0.0")
+    ,m_name("jhz/1.0.0")
     ,m_type("tcp")
     ,m_isStop(true) {
 }
@@ -27,7 +27,7 @@ TcpServer::~TcpServer() {
     m_socks.clear();
 }
 
-bool TcpServer::bind(sylar::Address::ptr addr) {
+bool TcpServer::bind(jhz::Address::ptr addr) {
     std::vector<Address::ptr> addrs;
     std::vector<Address::ptr> fails;
     addrs.push_back(addr);
@@ -39,14 +39,14 @@ bool TcpServer::bind(const std::vector<Address::ptr>& addrs
     for(auto& addr : addrs) {
         Socket::ptr sock = Socket::CreateTCP(addr);
         if(!sock->bind(addr)) {
-            SYLAR_LOG_ERROR(g_logger) << "bind fail errno="
+            JHZ_LOG_ERROR(g_logger) << "bind fail errno="
                 << errno << " errstr=" << strerror(errno)
                 << " addr=[" << addr->toString() << "]";
             fails.push_back(addr);
             continue;
         }
         if(!sock->listen()) {
-            SYLAR_LOG_ERROR(g_logger) << "listen fail errno="
+            JHZ_LOG_ERROR(g_logger) << "listen fail errno="
                 << errno << " errstr=" << strerror(errno)
                 << " addr=[" << addr->toString() << "]";
             fails.push_back(addr);
@@ -61,7 +61,7 @@ bool TcpServer::bind(const std::vector<Address::ptr>& addrs
     }
 
     for(auto& i : m_socks) {
-        SYLAR_LOG_INFO(g_logger) << "type=" << m_type
+        JHZ_LOG_INFO(g_logger) << "type=" << m_type
             << " name=" << m_name
             << " server bind success: " << *i;
     }
@@ -76,7 +76,7 @@ void TcpServer::startAccept(Socket::ptr sock) {
             m_ioWorker->schedule(std::bind(&TcpServer::handleClient,
                         shared_from_this(), client));
         } else {
-            SYLAR_LOG_ERROR(g_logger) << "accept errno=" << errno
+            JHZ_LOG_ERROR(g_logger) << "accept errno=" << errno
                 << " errstr=" << strerror(errno);
         }
     }
@@ -107,7 +107,7 @@ void TcpServer::stop() {
 }
 
 void TcpServer::handleClient(Socket::ptr client) {
-    SYLAR_LOG_INFO(g_logger) << "handleClient: " << *client;
+    JHZ_LOG_INFO(g_logger) << "handleClient: " << *client;
 }
 
 std::string TcpServer::toString(const std::string& prefix) {

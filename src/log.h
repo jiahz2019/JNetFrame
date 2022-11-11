@@ -1,12 +1,8 @@
-/**
- * @file log.h
- * @brief 日志模块
- * @version 0.1
- * @date 2021-06-08
- */
+// @brief 日志模块
 
-#ifndef __SYLAR_LOG_H__
-#define __SYLAR_LOG_H__
+
+#ifndef __JHZ_LOG_H__
+#define __JHZ_LOG_H__
 #include <string>
 #include <memory>
 #include <iostream>
@@ -23,69 +19,69 @@
 /**
  * @brief 获取root日志器
  */
-#define SYLAR_LOG_ROOT() sylar::LoggerMgr::GetInstance()->getRoot()
+#define JHZ_LOG_ROOT() jhz::LoggerMgr::GetInstance()->getRoot()
 
 /**
  * @brief 获取指定名称的日志器
  */
-#define SYLAR_LOG_NAME(name) sylar::LoggerMgr::GetInstance()->getLogger(name)
+#define JHZ_LOG_NAME(name) jhz::LoggerMgr::GetInstance()->getLogger(name)
 
 /**
  * @brief 使用流式方式将日志级别level的日志写入到logger
  * @details 构造一个LogEventWrap对象，包裹包含日志器和日志事件，在对象析构时调用日志器写日志事件
  * @todo 协程id未实现，暂时写0
  */
-#define SYLAR_LOG_LEVEL(logger , level) \
+#define JHZ_LOG_LEVEL(logger , level) \
     if(level <= logger->getLevel()) \
-        sylar::LogEventWrap(logger, sylar::LogEvent::ptr(new sylar::LogEvent(logger->getName(), \
-            level, __FILE__, __LINE__, sylar::GetElapsedMS() - logger->getCreateTime(), \
-            sylar::GetThreadId(), sylar::GetFiberId(), time(0), sylar::GetThreadName()))).getLogEvent()->getSS()
+        jhz::LogEventWrap(logger, jhz::LogEvent::ptr(new jhz::LogEvent(logger->getName(), \
+            level, __FILE__, __LINE__, jhz::GetElapsedMS() - logger->getCreateTime(), \
+            jhz::GetThreadId(), jhz::GetFiberId(), time(0), jhz::GetThreadName()))).getLogEvent()->getSS()
 
-#define SYLAR_LOG_FATAL(logger) SYLAR_LOG_LEVEL(logger, sylar::LogLevel::FATAL)
+#define JHZ_LOG_FATAL(logger) JHZ_LOG_LEVEL(logger, jhz::LogLevel::FATAL)
 
-#define SYLAR_LOG_ALERT(logger) SYLAR_LOG_LEVEL(logger, sylar::LogLevel::ALERT)
+#define JHZ_LOG_ALERT(logger) JHZ_LOG_LEVEL(logger, jhz::LogLevel::ALERT)
 
-#define SYLAR_LOG_CRIT(logger) SYLAR_LOG_LEVEL(logger, sylar::LogLevel::CRIT)
+#define JHZ_LOG_CRIT(logger) JHZ_LOG_LEVEL(logger, jhz::LogLevel::CRIT)
 
-#define SYLAR_LOG_ERROR(logger) SYLAR_LOG_LEVEL(logger, sylar::LogLevel::ERROR)
+#define JHZ_LOG_ERROR(logger) JHZ_LOG_LEVEL(logger, jhz::LogLevel::ERROR)
 
-#define SYLAR_LOG_WARN(logger) SYLAR_LOG_LEVEL(logger, sylar::LogLevel::WARN)
+#define JHZ_LOG_WARN(logger) JHZ_LOG_LEVEL(logger, jhz::LogLevel::WARN)
 
-#define SYLAR_LOG_NOTICE(logger) SYLAR_LOG_LEVEL(logger, sylar::LogLevel::NOTICE)
+#define JHZ_LOG_NOTICE(logger) JHZ_LOG_LEVEL(logger, jhz::LogLevel::NOTICE)
 
-#define SYLAR_LOG_INFO(logger) SYLAR_LOG_LEVEL(logger, sylar::LogLevel::INFO)
+#define JHZ_LOG_INFO(logger) JHZ_LOG_LEVEL(logger, jhz::LogLevel::INFO)
 
-#define SYLAR_LOG_DEBUG(logger) SYLAR_LOG_LEVEL(logger, sylar::LogLevel::DEBUG)
+#define JHZ_LOG_DEBUG(logger) JHZ_LOG_LEVEL(logger, jhz::LogLevel::DEBUG)
 
 /**
  * @brief 使用C printf方式将日志级别level的日志写入到logger
  * @details 构造一个LogEventWrap对象，包裹包含日志器和日志事件，在对象析构时调用日志器写日志事件
  * @todo 协程id未实现，暂时写0
  */
-#define SYLAR_LOG_FMT_LEVEL(logger, level, fmt, ...) \
+#define JHZ_LOG_FMT_LEVEL(logger, level, fmt, ...) \
     if(level <= logger->getLevel()) \
-        sylar::LogEventWrap(logger, sylar::LogEvent::ptr(new sylar::LogEvent(logger->getName(), \
-            level, __FILE__, __LINE__, sylar::GetElapsedMS() - logger->getCreateTime(), \
-            sylar::GetThreadId(), sylar::GetFiberId(), time(0), sylar::GetThreadName()))).getLogEvent()->printf(fmt, __VA_ARGS__)
+        jhz::LogEventWrap(logger, jhz::LogEvent::ptr(new jhz::LogEvent(logger->getName(), \
+            level, __FILE__, __LINE__, jhz::GetElapsedMS() - logger->getCreateTime(), \
+            jhz::GetThreadId(), jhz::GetFiberId(), time(0), jhz::GetThreadName()))).getLogEvent()->printf(fmt, __VA_ARGS__)
 
-#define SYLAR_LOG_FMT_FATAL(logger, fmt, ...) SYLAR_LOG_FMT_LEVEL(logger, sylar::LogLevel::FATAL, fmt, __VA_ARGS__)
+#define JHZ_LOG_FMT_FATAL(logger, fmt, ...) JHZ_LOG_FMT_LEVEL(logger, jhz::LogLevel::FATAL, fmt, __VA_ARGS__)
 
-#define SYLAR_LOG_FMT_ALERT(logger, fmt, ...) SYLAR_LOG_FMT_LEVEL(logger, sylar::LogLevel::ALERT, fmt, __VA_ARGS__)
+#define JHZ_LOG_FMT_ALERT(logger, fmt, ...) JHZ_LOG_FMT_LEVEL(logger, jhz::LogLevel::ALERT, fmt, __VA_ARGS__)
 
-#define SYLAR_LOG_FMT_CRIT(logger, fmt, ...) SYLAR_LOG_FMT_LEVEL(logger, sylar::LogLevel::CRIT, fmt, __VA_ARGS__)
+#define JHZ_LOG_FMT_CRIT(logger, fmt, ...) JHZ_LOG_FMT_LEVEL(logger, jhz::LogLevel::CRIT, fmt, __VA_ARGS__)
 
-#define SYLAR_LOG_FMT_ERROR(logger, fmt, ...) SYLAR_LOG_FMT_LEVEL(logger, sylar::LogLevel::ERROR, fmt, __VA_ARGS__)
+#define JHZ_LOG_FMT_ERROR(logger, fmt, ...) JHZ_LOG_FMT_LEVEL(logger, jhz::LogLevel::ERROR, fmt, __VA_ARGS__)
 
-#define SYLAR_LOG_FMT_WARN(logger, fmt, ...) SYLAR_LOG_FMT_LEVEL(logger, sylar::LogLevel::WARN, fmt, __VA_ARGS__)
+#define JHZ_LOG_FMT_WARN(logger, fmt, ...) JHZ_LOG_FMT_LEVEL(logger, jhz::LogLevel::WARN, fmt, __VA_ARGS__)
 
-#define SYLAR_LOG_FMT_NOTICE(logger, fmt, ...) SYLAR_LOG_FMT_LEVEL(logger, sylar::LogLevel::NOTICE, fmt, __VA_ARGS__)
+#define JHZ_LOG_FMT_NOTICE(logger, fmt, ...) JHZ_LOG_FMT_LEVEL(logger, jhz::LogLevel::NOTICE, fmt, __VA_ARGS__)
 
-#define SYLAR_LOG_FMT_INFO(logger, fmt, ...) SYLAR_LOG_FMT_LEVEL(logger, sylar::LogLevel::INFO, fmt, __VA_ARGS__)
+#define JHZ_LOG_FMT_INFO(logger, fmt, ...) JHZ_LOG_FMT_LEVEL(logger, jhz::LogLevel::INFO, fmt, __VA_ARGS__)
 
-#define SYLAR_LOG_FMT_DEBUG(logger, fmt, ...) SYLAR_LOG_FMT_LEVEL(logger, sylar::LogLevel::DEBUG, fmt, __VA_ARGS__)
+#define JHZ_LOG_FMT_DEBUG(logger, fmt, ...) JHZ_LOG_FMT_LEVEL(logger, jhz::LogLevel::DEBUG, fmt, __VA_ARGS__)
 
 
-namespace sylar {
+namespace jhz {
 /**
  * @brief 日志级别
  */
@@ -585,7 +581,7 @@ private:
 };
 
 /// 日志器管理类单例
-typedef sylar::Singleton<LoggerManager> LoggerMgr;
+typedef jhz::Singleton<LoggerManager> LoggerMgr;
 
 }
 #endif

@@ -1,7 +1,7 @@
 #include "http_session.h"
 #include "http_parser.h"
 
-namespace sylar {
+namespace jhz {
 namespace http {
 
 HttpSession::HttpSession(Socket::ptr sock, bool owner)
@@ -76,4 +76,4 @@ int HttpSession::sendResponse(HttpResponse::ptr rsp) {
 }
 
 } // namespace http
-} // namespace sylar
+} // namespace jhz

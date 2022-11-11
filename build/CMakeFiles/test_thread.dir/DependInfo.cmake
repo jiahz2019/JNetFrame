@@ -19,7 +19,7 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
-  "/home/ubuntu/cworkplace/JNetFrame/build/CMakeFiles/sylar.dir/DependInfo.cmake"
+  "/home/ubuntu/cworkplace/JNetFrame/build/CMakeFiles/jhz.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

@@ -15,6 +15,7 @@ CMakeFiles/test_fiber.dir/tests/test_fiber.cc.o
  ../src/http/http_session.h
  ../src/http/servlet.h
  ../src/iomanager.h
+ ../src/jhz.h
  ../src/log.h
  ../src/macro.h
  ../src/mutex.h
@@ -24,7 +25,6 @@ CMakeFiles/test_fiber.dir/tests/test_fiber.cc.o
  ../src/socket.h
  ../src/stream.h
  ../src/streams/socket_stream.h
- ../src/sylar.h
  ../src/tcp_server.h
  ../src/thread.h
  ../src/timer.h

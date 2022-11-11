@@ -2,7 +2,7 @@
 #include "util.h"
 #include "macro.h"
 
-namespace sylar {
+namespace jhz {
 
 bool Timer::Comparator::operator()(const Timer::ptr& lhs
                         ,const Timer::ptr& rhs) const {
@@ -31,7 +31,7 @@ Timer::Timer(uint64_t ms, std::function<void()> cb,
     ,m_ms(ms)
     ,m_cb(cb)
     ,m_manager(manager) {
-    m_next = sylar::GetElapsedMS() + m_ms;
+    m_next = jhz::GetElapsedMS() + m_ms;
 }
 
 Timer::Timer(uint64_t next)
@@ -59,7 +59,7 @@ bool Timer::refresh() {
         return false;
     }
     m_manager->m_timers.erase(it);
-    m_next = sylar::GetElapsedMS() + m_ms;
+    m_next = jhz::GetElapsedMS() + m_ms;
     m_manager->m_timers.insert(shared_from_this());
     return true;
 }
@@ -79,7 +79,7 @@ bool Timer::reset(uint64_t ms, bool from_now) {
     m_manager->m_timers.erase(it);
     uint64_t start = 0;
     if(from_now) {
-        start = sylar::GetElapsedMS();
+        start = jhz::GetElapsedMS();
     } else {
         start = m_next - m_ms;
     }
@@ -91,7 +91,7 @@ bool Timer::reset(uint64_t ms, bool from_now) {
 }
 
 TimerManager::TimerManager() {
-    m_previouseTime = sylar::GetElapsedMS();
+    m_previouseTime = jhz::GetElapsedMS();
 }
 
 TimerManager::~TimerManager() {
@@ -126,7 +126,7 @@ uint64_t TimerManager::getNextTimer() {
     }
 
     const Timer::ptr& next = *m_timers.begin();
-    uint64_t now_ms = sylar::GetElapsedMS();
+    uint64_t now_ms = jhz::GetElapsedMS();
     if(now_ms >= next->m_next) {
         return 0;
     } else {
@@ -135,7 +135,7 @@ uint64_t TimerManager::getNextTimer() {
 }
 
 void TimerManager::listExpiredCb(std::vector<std::function<void()> >& cbs) {
-    uint64_t now_ms = sylar::GetElapsedMS();
+    uint64_t now_ms = jhz::GetElapsedMS();
     std::vector<Timer::ptr> expired;
     {
         RWMutexType::ReadLock lock(m_mutex);
@@ -148,7 +148,7 @@ void TimerManager::listExpiredCb(std::vector<std::function<void()> >& cbs) {
         return;
     }
     bool rollover = false;
-    if(SYLAR_UNLIKELY(detectClockRollover(now_ms))) {
+    if(JHZ_UNLIKELY(detectClockRollover(now_ms))) {
         // 使用clock_gettime(CLOCK_MONOTONIC_RAW)，应该不可能出现时间回退的问题
         rollover = true;
     }

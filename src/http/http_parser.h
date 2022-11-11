@@ -1,15 +1,12 @@
-/**
- * @file http_parser.h
- * @brief HTTP协议解析封装
- * @version 0.1
- * @date 2021-09-25
- */
-#ifndef __SYLAR_HTTP_PARSER_H__
-#define __SYLAR_HTTP_PARSER_H__
+
+//@brief HTTP协议解析封装
+
+#ifndef __JHZ_HTTP_PARSER_H__
+#define __JHZ_HTTP_PARSER_H__
 
 #include "http.h"
 
-namespace sylar {
+namespace jhz {
 namespace http {
 
 /**
@@ -188,6 +185,6 @@ private:
 };
 
 } // namespace http
-} // namespace sylar
+} // namespace jhz
 
 #endif

@@ -79,7 +79,7 @@ test_fiber2_EXTERNAL_OBJECTS =
 
 bin/test_fiber2: CMakeFiles/test_fiber2.dir/tests/test_fiber2.cc.o
 bin/test_fiber2: CMakeFiles/test_fiber2.dir/build.make
-bin/test_fiber2: lib/libsylar.so
+bin/test_fiber2: lib/libjhz.so
 bin/test_fiber2: CMakeFiles/test_fiber2.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/ubuntu/cworkplace/JNetFrame/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable bin/test_fiber2"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/test_fiber2.dir/link.txt --verbose=$(VERBOSE)

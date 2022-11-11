@@ -14,6 +14,7 @@ CMakeFiles/test_fiber.dir/tests/test_fiber.cc.o: ../src/http/http_server.h
 CMakeFiles/test_fiber.dir/tests/test_fiber.cc.o: ../src/http/http_session.h
 CMakeFiles/test_fiber.dir/tests/test_fiber.cc.o: ../src/http/servlet.h
 CMakeFiles/test_fiber.dir/tests/test_fiber.cc.o: ../src/iomanager.h
+CMakeFiles/test_fiber.dir/tests/test_fiber.cc.o: ../src/jhz.h
 CMakeFiles/test_fiber.dir/tests/test_fiber.cc.o: ../src/log.h
 CMakeFiles/test_fiber.dir/tests/test_fiber.cc.o: ../src/macro.h
 CMakeFiles/test_fiber.dir/tests/test_fiber.cc.o: ../src/mutex.h
@@ -23,7 +24,6 @@ CMakeFiles/test_fiber.dir/tests/test_fiber.cc.o: ../src/singleton.h
 CMakeFiles/test_fiber.dir/tests/test_fiber.cc.o: ../src/socket.h
 CMakeFiles/test_fiber.dir/tests/test_fiber.cc.o: ../src/stream.h
 CMakeFiles/test_fiber.dir/tests/test_fiber.cc.o: ../src/streams/socket_stream.h
-CMakeFiles/test_fiber.dir/tests/test_fiber.cc.o: ../src/sylar.h
 CMakeFiles/test_fiber.dir/tests/test_fiber.cc.o: ../src/tcp_server.h
 CMakeFiles/test_fiber.dir/tests/test_fiber.cc.o: ../src/thread.h
 CMakeFiles/test_fiber.dir/tests/test_fiber.cc.o: ../src/timer.h

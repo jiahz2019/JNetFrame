@@ -37,29 +37,29 @@ set(LIB_SRC
     )
 
 
-add_library(sylar SHARED ${LIB_SRC})
+add_library(jhz SHARED ${LIB_SRC})
 
 
 set(LIBS
-    sylar
+    jhz
     pthread
     yaml-cpp
     ${CONAN_LIBS}
 )
 
-sylar_add_executable(test_log "tests/test_log.cc" sylar "${LIBS}")
-sylar_add_executable(test_config "tests/test_config.cc" sylar "${LIBS}")
-sylar_add_executable(test_thread "tests/test_thread.cc" sylar "${LIBS}")
-sylar_add_executable(test_fiber "tests/test_fiber.cc" sylar "${LIBS}")
-sylar_add_executable(test_fiber2 "tests/test_fiber2.cc" sylar "${LIBS}")
-sylar_add_executable(test_scheduler "tests/test_scheduler.cc" sylar "${LIBS}")
-sylar_add_executable(test_iomanager "tests/test_iomanager.cc" sylar "${LIBS}")
-sylar_add_executable(test_hook "tests/test_hook.cc" sylar "${LIBS}")
-sylar_add_executable(test_address "tests/test_address.cc" sylar "${LIBS}")
-sylar_add_executable(test_bytearray "tests/test_bytearray.cc" sylar "${LIBS}")
-sylar_add_executable(test_tcp_server "tests/test_tcp_server.cc" sylar "${LIBS}")
-sylar_add_executable(test_http_parser "tests/test_http_parser.cc" sylar "${LIBS}")
-sylar_add_executable(test_http_server "tests/test_http_server.cc" sylar "${LIBS}")
+sylar_add_executable(test_log "tests/test_log.cc" jhz "${LIBS}")
+sylar_add_executable(test_config "tests/test_config.cc" jhz "${LIBS}")
+sylar_add_executable(test_thread "tests/test_thread.cc" jhz "${LIBS}")
+sylar_add_executable(test_fiber "tests/test_fiber.cc" jhz "${LIBS}")
+sylar_add_executable(test_fiber2 "tests/test_fiber2.cc" jhz "${LIBS}")
+sylar_add_executable(test_scheduler "tests/test_scheduler.cc" jhz "${LIBS}")
+sylar_add_executable(test_iomanager "tests/test_iomanager.cc" jhz "${LIBS}")
+sylar_add_executable(test_hook "tests/test_hook.cc" jhz "${LIBS}")
+sylar_add_executable(test_address "tests/test_address.cc" jhz "${LIBS}")
+sylar_add_executable(test_bytearray "tests/test_bytearray.cc" jhz "${LIBS}")
+sylar_add_executable(test_tcp_server "tests/test_tcp_server.cc" jhz "${LIBS}")
+sylar_add_executable(test_http_parser "tests/test_http_parser.cc" jhz "${LIBS}")
+sylar_add_executable(test_http_server "tests/test_http_server.cc" jhz "${LIBS}")
 
 set(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/build/lib)
 set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/build/bin)

@@ -1,18 +1,13 @@
-/**
- * @file stream.h
- * @brief 流接口
- * @author sylar.yin
- * @email 564628276@qq.com
- * @date 2019-06-06
- * @copyright Copyright (c) 2019年 sylar.yin All rights reserved (www.sylar.top)
- */
-#ifndef __SYLAR_STREAM_H__
-#define __SYLAR_STREAM_H__
+
+// @brief 流接口
+
+#ifndef __JHZ_STREAM_H__
+#define __JHZ_STREAM_H__
 
 #include <memory>
 #include "bytearray.h"
 
-namespace sylar {
+namespace jhz {
 
 /**
  * @brief 流结构

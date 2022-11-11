@@ -1,18 +1,13 @@
-/**
- * @file fd_manager.cc
- * @brief 文件句柄管理类实现
- * @details 只管理socket fd，记录fd是否为socket，用户是否设置非阻塞，系统是否设置非阻塞，send/recv超时时间
- *          提供FdManager单例和get/del方法，用于创建/获取/删除fd
- * @version 0.1
- * @date 2021-06-21
- */
+
+// @brief 文件句柄管理类实现
+
 #include "fd_manager.h"
 #include "hook.h"
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <unistd.h>
 
-namespace sylar {
+namespace jhz {
 
 FdCtx::FdCtx(int fd)
     :m_isInit(false)

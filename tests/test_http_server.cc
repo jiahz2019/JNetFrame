@@ -1,39 +1,36 @@
-/**
- * @file test_http_server.cc
- * @brief HttpServer测试
- * @version 0.1
- * @date 2021-09-28
- */
-#include "src/sylar.h"
 
-static sylar::Logger::ptr g_logger = SYLAR_LOG_ROOT();
+// @brief HttpServer测试
+
+#include "src/jhz.h"
+
+static jhz::Logger::ptr g_logger = JHZ_LOG_ROOT();
 
 #define XX(...) #__VA_ARGS__
 
-sylar::IOManager::ptr worker;
+jhz::IOManager::ptr worker;
 
 void run() {
-    g_logger->setLevel(sylar::LogLevel::INFO);
-    //sylar::http::HttpServer::ptr server(new sylar::http::HttpServer(true, worker.get(), sylar::IOManager::GetThis()));
-    sylar::http::HttpServer::ptr server(new sylar::http::HttpServer(true));
-    sylar::Address::ptr addr = sylar::Address::LookupAnyIPAddress("10.0.4.11:8080");
-    SYLAR_LOG_INFO(g_logger)<<addr->toString();
+    g_logger->setLevel(jhz::LogLevel::INFO);
+    //jhz::http::HttpServer::ptr server(new jhz::http::HttpServer(true, worker.get(), jhz::IOManager::GetThis()));
+    jhz::http::HttpServer::ptr server(new jhz::http::HttpServer(true));
+    jhz::Address::ptr addr = jhz::Address::LookupAnyIPAddress("10.0.4.11:8080");
+    JHZ_LOG_INFO(g_logger)<<addr->toString();
     while (!server->bind(addr)) {
         sleep(2);
     }
     auto sd = server->getServletDispatch();
-    sd->addServlet("/sylar/xx", [](sylar::http::HttpRequest::ptr req, sylar::http::HttpResponse::ptr rsp, sylar::http::HttpSession::ptr session) {
+    sd->addServlet("/jhz/xx", [](jhz::http::HttpRequest::ptr req, jhz::http::HttpResponse::ptr rsp, jhz::http::HttpSession::ptr session) {
         //rsp->setBody(req->toString());
         rsp->setBody("hello world");
         return 0;
     });
 
-    sd->addGlobServlet("/sylar/*", [](sylar::http::HttpRequest::ptr req, sylar::http::HttpResponse::ptr rsp, sylar::http::HttpSession::ptr session) {
+    sd->addGlobServlet("/jhz/*", [](jhz::http::HttpRequest::ptr req, jhz::http::HttpResponse::ptr rsp, jhz::http::HttpSession::ptr session) {
         rsp->setBody("Glob:\r\n" + req->toString());
         return 0;
     });
 
-    sd->addGlobServlet("/sylarx/*", [](sylar::http::HttpRequest::ptr req, sylar::http::HttpResponse::ptr rsp, sylar::http::HttpSession::ptr session) {
+    sd->addGlobServlet("/jhzx/*", [](jhz::http::HttpRequest::ptr req, jhz::http::HttpResponse::ptr rsp, jhz::http::HttpSession::ptr session) {
         rsp->setBody(XX(<html>
                                 <head><title> 404 Not Found</ title></ head>
                                 <body>
@@ -62,11 +59,11 @@ void run() {
 }
 
 int main(int argc, char **argv) {
-    sylar::EnvMgr::GetInstance()->init(argc, argv);
-    sylar::Config::LoadFromConfDir(sylar::EnvMgr::GetInstance()->getConfigPath());
+    jhz::EnvMgr::GetInstance()->init(argc, argv);
+    jhz::Config::LoadFromConfDir(jhz::EnvMgr::GetInstance()->getConfigPath());
     
-    sylar::IOManager iom(1, true, "main");
-    worker.reset(new sylar::IOManager(3, false, "worker"));
+    jhz::IOManager iom(1, true, "main");
+    worker.reset(new jhz::IOManager(3, false, "worker"));
     iom.schedule(run);
     return 0;
 }

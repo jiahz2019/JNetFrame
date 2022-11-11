@@ -1,16 +1,13 @@
-/**
- * @file scheduler.cc
- * @brief 协程调度器实现
- * @version 0.1
- * @date 2021-06-15
- */
+
+//@brief 协程调度器实现
+
 #include "scheduler.h"
 #include "macro.h"
 #include "hook.h"
 
-namespace sylar {
+namespace jhz {
 
-static sylar::Logger::ptr g_logger = SYLAR_LOG_NAME("system");
+static jhz::Logger::ptr g_logger = JHZ_LOG_NAME("system");
 
 /// 当前线程的调度器，同一个调度器下的所有线程共享同一个实例
 static thread_local Scheduler *t_scheduler = nullptr;
@@ -18,15 +15,15 @@ static thread_local Scheduler *t_scheduler = nullptr;
 static thread_local Fiber *t_scheduler_fiber = nullptr;
 
 Scheduler::Scheduler(size_t threads, bool use_caller, const std::string &name) {
-    SYLAR_ASSERT(threads > 0);
+    JHZ_ASSERT(threads > 0);
 
     m_useCaller = use_caller;
     m_name      = name;
 
     if (use_caller) {
         --threads;
-        sylar::Fiber::GetThis();
-        SYLAR_ASSERT(GetThis() == nullptr);
+        jhz::Fiber::GetThis();
+        JHZ_ASSERT(GetThis() == nullptr);
         t_scheduler = this;
 
         /**
@@ -35,9 +32,9 @@ Scheduler::Scheduler(size_t threads, bool use_caller, const std::string &name) {
          */
         m_rootFiber.reset(new Fiber(std::bind(&Scheduler::run, this), 0, false));
 
-        sylar::Thread::SetName(m_name);
+        jhz::Thread::SetName(m_name);
         t_scheduler_fiber = m_rootFiber.get();
-        m_rootThread      = sylar::GetThreadId();
+        m_rootThread      = jhz::GetThreadId();
         m_threadIds.push_back(m_rootThread);
     } else {
         m_rootThread = -1;
@@ -58,20 +55,20 @@ void Scheduler::setThis() {
 }
 
 Scheduler::~Scheduler() {
-    SYLAR_LOG_DEBUG(g_logger) << "Scheduler::~Scheduler()";
-    SYLAR_ASSERT(m_stopping);
+    JHZ_LOG_DEBUG(g_logger) << "Scheduler::~Scheduler()";
+    JHZ_ASSERT(m_stopping);
     if (GetThis() == this) {
         t_scheduler = nullptr;
     }
 }
 void Scheduler::start() {
-    SYLAR_LOG_DEBUG(g_logger) << "start";
+    JHZ_LOG_DEBUG(g_logger) << "start";
     MutexType::Lock lock(m_mutex);
     if (m_stopping) {
-        SYLAR_LOG_ERROR(g_logger) << "Scheduler is stopped";
+        JHZ_LOG_ERROR(g_logger) << "Scheduler is stopped";
         return;
     }
-    SYLAR_ASSERT(m_threads.empty());
+    JHZ_ASSERT(m_threads.empty());
     m_threads.resize(m_threadCount);
     for (size_t i = 0; i < m_threadCount; i++) {
         m_threads[i].reset(new Thread(std::bind(&Scheduler::run, this),
@@ -86,18 +83,18 @@ bool Scheduler::stopping() {
 }
 
 void Scheduler::tickle() { 
-    SYLAR_LOG_DEBUG(g_logger) << "ticlke"; 
+    JHZ_LOG_DEBUG(g_logger) << "ticlke"; 
 }
 
 void Scheduler::idle() {
-    SYLAR_LOG_DEBUG(g_logger) << "idle";
+    JHZ_LOG_DEBUG(g_logger) << "idle";
     while (!stopping()) {
-        sylar::Fiber::GetThis()->yield();
+        jhz::Fiber::GetThis()->yield();
     }
 }
 
 void Scheduler::stop() {
-    SYLAR_LOG_DEBUG(g_logger) << "stop";
+    JHZ_LOG_DEBUG(g_logger) << "stop";
     if (stopping()) {
         return;
     }
@@ -105,9 +102,9 @@ void Scheduler::stop() {
 
     /// 如果use caller，那只能由caller线程发起stop
     if (m_useCaller) {
-        SYLAR_ASSERT(GetThis() == this);
+        JHZ_ASSERT(GetThis() == this);
     } else {
-        SYLAR_ASSERT(GetThis() != this);
+        JHZ_ASSERT(GetThis() != this);
     }
 
     for (size_t i = 0; i < m_threadCount; i++) {
@@ -121,7 +118,7 @@ void Scheduler::stop() {
     /// 在use caller情况下，调度器协程结束时，应该返回caller协程
     if (m_rootFiber) {
         m_rootFiber->resume();
-        SYLAR_LOG_DEBUG(g_logger) << "m_rootFiber end";
+        JHZ_LOG_DEBUG(g_logger) << "m_rootFiber end";
     }
 
     std::vector<Thread::ptr> thrs;
@@ -135,11 +132,11 @@ void Scheduler::stop() {
 }
 
 void Scheduler::run() {
-    SYLAR_LOG_DEBUG(g_logger) << "run";
+    JHZ_LOG_DEBUG(g_logger) << "run";
     set_hook_enable(true);
     setThis();
-    if (sylar::GetThreadId() != m_rootThread) {
-        t_scheduler_fiber = sylar::Fiber::GetThis().get();
+    if (jhz::GetThreadId() != m_rootThread) {
+        t_scheduler_fiber = jhz::Fiber::GetThis().get();
     }
 
     Fiber::ptr idle_fiber(new Fiber(std::bind(&Scheduler::idle, this)));
@@ -154,7 +151,7 @@ void Scheduler::run() {
             auto it = m_tasks.begin();
             // 遍历所有调度任务
             while (it != m_tasks.end()) {
-                if (it->thread != -1 && it->thread != sylar::GetThreadId()) {
+                if (it->thread != -1 && it->thread != jhz::GetThreadId()) {
                     // 指定了调度线程，但不是在当前线程上调度，标记一下需要通知其他线程进行调度，然后跳过这个任务，继续下一个
                     ++it;
                     tickle_me = true;
@@ -162,11 +159,11 @@ void Scheduler::run() {
                 }
 
                 // 找到一个未指定线程，或是指定了当前线程的任务
-                SYLAR_ASSERT(it->fiber || it->cb);
+                JHZ_ASSERT(it->fiber || it->cb);
 
                 // if (it->fiber) {
                 //     // 任务队列时的协程一定是READY状态，谁会把RUNNING或TERM状态的协程加入调度呢？
-                //     SYLAR_ASSERT(it->fiber->getState() == Fiber::READY);
+                //     JHZ_ASSERT(it->fiber->getState() == Fiber::READY);
                 // }
 
                 // [BUG FIX]: hook IO相关的系统调用时，在检测到IO未就绪的情况下，会先添加对应的读写事件，再yield当前协程，等IO就绪后再resume当前协程
@@ -210,7 +207,7 @@ void Scheduler::run() {
             // 进到这个分支情况一定是任务队列空了，调度idle协程即可
             if (idle_fiber->getState() == Fiber::TERM) {
                 // 如果调度器没有调度任务，那么idle协程会不停地resume/yield，不会结束，如果idle协程结束了，那一定是调度器停止了
-                SYLAR_LOG_DEBUG(g_logger) << "idle fiber term";
+                JHZ_LOG_DEBUG(g_logger) << "idle fiber term";
                 break;
             }
             ++m_idleThreadCount;
@@ -218,8 +215,8 @@ void Scheduler::run() {
             --m_idleThreadCount;
         }
     }
-    SYLAR_LOG_DEBUG(g_logger) << "Scheduler::run() exit";
+    JHZ_LOG_DEBUG(g_logger) << "Scheduler::run() exit";
 }
 
-} // end namespace sylar
+} // end namespace jhz
 

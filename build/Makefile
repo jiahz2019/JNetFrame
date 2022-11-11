@@ -111,30 +111,17 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named sylar
+# Target rules for targets named jhz
 
 # Build rule for target.
-sylar: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 sylar
-.PHONY : sylar
+jhz: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 jhz
+.PHONY : jhz
 
 # fast build rule for target.
-sylar/fast:
-	$(MAKE) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/build
-.PHONY : sylar/fast
-
-#=============================================================================
-# Target rules for targets named test_hook
-
-# Build rule for target.
-test_hook: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 test_hook
-.PHONY : test_hook
-
-# fast build rule for target.
-test_hook/fast:
-	$(MAKE) -f CMakeFiles/test_hook.dir/build.make CMakeFiles/test_hook.dir/build
-.PHONY : test_hook/fast
+jhz/fast:
+	$(MAKE) -f CMakeFiles/jhz.dir/build.make CMakeFiles/jhz.dir/build
+.PHONY : jhz/fast
 
 #=============================================================================
 # Target rules for targets named test_scheduler
@@ -292,13 +279,26 @@ test_http_parser/fast:
 	$(MAKE) -f CMakeFiles/test_http_parser.dir/build.make CMakeFiles/test_http_parser.dir/build
 .PHONY : test_http_parser/fast
 
+#=============================================================================
+# Target rules for targets named test_hook
+
+# Build rule for target.
+test_hook: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 test_hook
+.PHONY : test_hook
+
+# fast build rule for target.
+test_hook/fast:
+	$(MAKE) -f CMakeFiles/test_hook.dir/build.make CMakeFiles/test_hook.dir/build
+.PHONY : test_hook/fast
+
 src/address.o: src/address.cc.o
 
 .PHONY : src/address.o
 
 # target to build an object file
 src/address.cc.o:
-	$(MAKE) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/src/address.cc.o
+	$(MAKE) -f CMakeFiles/jhz.dir/build.make CMakeFiles/jhz.dir/src/address.cc.o
 .PHONY : src/address.cc.o
 
 src/address.i: src/address.cc.i
@@ -307,7 +307,7 @@ src/address.i: src/address.cc.i
 
 # target to preprocess a source file
 src/address.cc.i:
-	$(MAKE) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/src/address.cc.i
+	$(MAKE) -f CMakeFiles/jhz.dir/build.make CMakeFiles/jhz.dir/src/address.cc.i
 .PHONY : src/address.cc.i
 
 src/address.s: src/address.cc.s
@@ -316,7 +316,7 @@ src/address.s: src/address.cc.s
 
 # target to generate assembly for a file
 src/address.cc.s:
-	$(MAKE) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/src/address.cc.s
+	$(MAKE) -f CMakeFiles/jhz.dir/build.make CMakeFiles/jhz.dir/src/address.cc.s
 .PHONY : src/address.cc.s
 
 src/bytearray.o: src/bytearray.cc.o
@@ -325,7 +325,7 @@ src/bytearray.o: src/bytearray.cc.o
 
 # target to build an object file
 src/bytearray.cc.o:
-	$(MAKE) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/src/bytearray.cc.o
+	$(MAKE) -f CMakeFiles/jhz.dir/build.make CMakeFiles/jhz.dir/src/bytearray.cc.o
 .PHONY : src/bytearray.cc.o
 
 src/bytearray.i: src/bytearray.cc.i
@@ -334,7 +334,7 @@ src/bytearray.i: src/bytearray.cc.i
 
 # target to preprocess a source file
 src/bytearray.cc.i:
-	$(MAKE) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/src/bytearray.cc.i
+	$(MAKE) -f CMakeFiles/jhz.dir/build.make CMakeFiles/jhz.dir/src/bytearray.cc.i
 .PHONY : src/bytearray.cc.i
 
 src/bytearray.s: src/bytearray.cc.s
@@ -343,7 +343,7 @@ src/bytearray.s: src/bytearray.cc.s
 
 # target to generate assembly for a file
 src/bytearray.cc.s:
-	$(MAKE) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/src/bytearray.cc.s
+	$(MAKE) -f CMakeFiles/jhz.dir/build.make CMakeFiles/jhz.dir/src/bytearray.cc.s
 .PHONY : src/bytearray.cc.s
 
 src/config.o: src/config.cc.o
@@ -352,7 +352,7 @@ src/config.o: src/config.cc.o
 
 # target to build an object file
 src/config.cc.o:
-	$(MAKE) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/src/config.cc.o
+	$(MAKE) -f CMakeFiles/jhz.dir/build.make CMakeFiles/jhz.dir/src/config.cc.o
 .PHONY : src/config.cc.o
 
 src/config.i: src/config.cc.i
@@ -361,7 +361,7 @@ src/config.i: src/config.cc.i
 
 # target to preprocess a source file
 src/config.cc.i:
-	$(MAKE) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/src/config.cc.i
+	$(MAKE) -f CMakeFiles/jhz.dir/build.make CMakeFiles/jhz.dir/src/config.cc.i
 .PHONY : src/config.cc.i
 
 src/config.s: src/config.cc.s
@@ -370,7 +370,7 @@ src/config.s: src/config.cc.s
 
 # target to generate assembly for a file
 src/config.cc.s:
-	$(MAKE) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/src/config.cc.s
+	$(MAKE) -f CMakeFiles/jhz.dir/build.make CMakeFiles/jhz.dir/src/config.cc.s
 .PHONY : src/config.cc.s
 
 src/env.o: src/env.cc.o
@@ -379,7 +379,7 @@ src/env.o: src/env.cc.o
 
 # target to build an object file
 src/env.cc.o:
-	$(MAKE) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/src/env.cc.o
+	$(MAKE) -f CMakeFiles/jhz.dir/build.make CMakeFiles/jhz.dir/src/env.cc.o
 .PHONY : src/env.cc.o
 
 src/env.i: src/env.cc.i
@@ -388,7 +388,7 @@ src/env.i: src/env.cc.i
 
 # target to preprocess a source file
 src/env.cc.i:
-	$(MAKE) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/src/env.cc.i
+	$(MAKE) -f CMakeFiles/jhz.dir/build.make CMakeFiles/jhz.dir/src/env.cc.i
 .PHONY : src/env.cc.i
 
 src/env.s: src/env.cc.s
@@ -397,7 +397,7 @@ src/env.s: src/env.cc.s
 
 # target to generate assembly for a file
 src/env.cc.s:
-	$(MAKE) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/src/env.cc.s
+	$(MAKE) -f CMakeFiles/jhz.dir/build.make CMakeFiles/jhz.dir/src/env.cc.s
 .PHONY : src/env.cc.s
 
 src/fd_manager.o: src/fd_manager.cc.o
@@ -406,7 +406,7 @@ src/fd_manager.o: src/fd_manager.cc.o
 
 # target to build an object file
 src/fd_manager.cc.o:
-	$(MAKE) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/src/fd_manager.cc.o
+	$(MAKE) -f CMakeFiles/jhz.dir/build.make CMakeFiles/jhz.dir/src/fd_manager.cc.o
 .PHONY : src/fd_manager.cc.o
 
 src/fd_manager.i: src/fd_manager.cc.i
@@ -415,7 +415,7 @@ src/fd_manager.i: src/fd_manager.cc.i
 
 # target to preprocess a source file
 src/fd_manager.cc.i:
-	$(MAKE) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/src/fd_manager.cc.i
+	$(MAKE) -f CMakeFiles/jhz.dir/build.make CMakeFiles/jhz.dir/src/fd_manager.cc.i
 .PHONY : src/fd_manager.cc.i
 
 src/fd_manager.s: src/fd_manager.cc.s
@@ -424,7 +424,7 @@ src/fd_manager.s: src/fd_manager.cc.s
 
 # target to generate assembly for a file
 src/fd_manager.cc.s:
-	$(MAKE) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/src/fd_manager.cc.s
+	$(MAKE) -f CMakeFiles/jhz.dir/build.make CMakeFiles/jhz.dir/src/fd_manager.cc.s
 .PHONY : src/fd_manager.cc.s
 
 src/fiber.o: src/fiber.cc.o
@@ -433,7 +433,7 @@ src/fiber.o: src/fiber.cc.o
 
 # target to build an object file
 src/fiber.cc.o:
-	$(MAKE) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/src/fiber.cc.o
+	$(MAKE) -f CMakeFiles/jhz.dir/build.make CMakeFiles/jhz.dir/src/fiber.cc.o
 .PHONY : src/fiber.cc.o
 
 src/fiber.i: src/fiber.cc.i
@@ -442,7 +442,7 @@ src/fiber.i: src/fiber.cc.i
 
 # target to preprocess a source file
 src/fiber.cc.i:
-	$(MAKE) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/src/fiber.cc.i
+	$(MAKE) -f CMakeFiles/jhz.dir/build.make CMakeFiles/jhz.dir/src/fiber.cc.i
 .PHONY : src/fiber.cc.i
 
 src/fiber.s: src/fiber.cc.s
@@ -451,7 +451,7 @@ src/fiber.s: src/fiber.cc.s
 
 # target to generate assembly for a file
 src/fiber.cc.s:
-	$(MAKE) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/src/fiber.cc.s
+	$(MAKE) -f CMakeFiles/jhz.dir/build.make CMakeFiles/jhz.dir/src/fiber.cc.s
 .PHONY : src/fiber.cc.s
 
 src/hook.o: src/hook.cc.o
@@ -460,7 +460,7 @@ src/hook.o: src/hook.cc.o
 
 # target to build an object file
 src/hook.cc.o:
-	$(MAKE) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/src/hook.cc.o
+	$(MAKE) -f CMakeFiles/jhz.dir/build.make CMakeFiles/jhz.dir/src/hook.cc.o
 .PHONY : src/hook.cc.o
 
 src/hook.i: src/hook.cc.i
@@ -469,7 +469,7 @@ src/hook.i: src/hook.cc.i
 
 # target to preprocess a source file
 src/hook.cc.i:
-	$(MAKE) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/src/hook.cc.i
+	$(MAKE) -f CMakeFiles/jhz.dir/build.make CMakeFiles/jhz.dir/src/hook.cc.i
 .PHONY : src/hook.cc.i
 
 src/hook.s: src/hook.cc.s
@@ -478,7 +478,7 @@ src/hook.s: src/hook.cc.s
 
 # target to generate assembly for a file
 src/hook.cc.s:
-	$(MAKE) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/src/hook.cc.s
+	$(MAKE) -f CMakeFiles/jhz.dir/build.make CMakeFiles/jhz.dir/src/hook.cc.s
 .PHONY : src/hook.cc.s
 
 src/http/http-parser/http_parser.o: src/http/http-parser/http_parser.cc.o
@@ -487,7 +487,7 @@ src/http/http-parser/http_parser.o: src/http/http-parser/http_parser.cc.o
 
 # target to build an object file
 src/http/http-parser/http_parser.cc.o:
-	$(MAKE) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/src/http/http-parser/http_parser.cc.o
+	$(MAKE) -f CMakeFiles/jhz.dir/build.make CMakeFiles/jhz.dir/src/http/http-parser/http_parser.cc.o
 .PHONY : src/http/http-parser/http_parser.cc.o
 
 src/http/http-parser/http_parser.i: src/http/http-parser/http_parser.cc.i
@@ -496,7 +496,7 @@ src/http/http-parser/http_parser.i: src/http/http-parser/http_parser.cc.i
 
 # target to preprocess a source file
 src/http/http-parser/http_parser.cc.i:
-	$(MAKE) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/src/http/http-parser/http_parser.cc.i
+	$(MAKE) -f CMakeFiles/jhz.dir/build.make CMakeFiles/jhz.dir/src/http/http-parser/http_parser.cc.i
 .PHONY : src/http/http-parser/http_parser.cc.i
 
 src/http/http-parser/http_parser.s: src/http/http-parser/http_parser.cc.s
@@ -505,7 +505,7 @@ src/http/http-parser/http_parser.s: src/http/http-parser/http_parser.cc.s
 
 # target to generate assembly for a file
 src/http/http-parser/http_parser.cc.s:
-	$(MAKE) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/src/http/http-parser/http_parser.cc.s
+	$(MAKE) -f CMakeFiles/jhz.dir/build.make CMakeFiles/jhz.dir/src/http/http-parser/http_parser.cc.s
 .PHONY : src/http/http-parser/http_parser.cc.s
 
 src/http/http.o: src/http/http.cc.o
@@ -514,7 +514,7 @@ src/http/http.o: src/http/http.cc.o
 
 # target to build an object file
 src/http/http.cc.o:
-	$(MAKE) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/src/http/http.cc.o
+	$(MAKE) -f CMakeFiles/jhz.dir/build.make CMakeFiles/jhz.dir/src/http/http.cc.o
 .PHONY : src/http/http.cc.o
 
 src/http/http.i: src/http/http.cc.i
@@ -523,7 +523,7 @@ src/http/http.i: src/http/http.cc.i
 
 # target to preprocess a source file
 src/http/http.cc.i:
-	$(MAKE) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/src/http/http.cc.i
+	$(MAKE) -f CMakeFiles/jhz.dir/build.make CMakeFiles/jhz.dir/src/http/http.cc.i
 .PHONY : src/http/http.cc.i
 
 src/http/http.s: src/http/http.cc.s
@@ -532,7 +532,7 @@ src/http/http.s: src/http/http.cc.s
 
 # target to generate assembly for a file
 src/http/http.cc.s:
-	$(MAKE) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/src/http/http.cc.s
+	$(MAKE) -f CMakeFiles/jhz.dir/build.make CMakeFiles/jhz.dir/src/http/http.cc.s
 .PHONY : src/http/http.cc.s
 
 src/http/http_parser.o: src/http/http_parser.cc.o
@@ -541,7 +541,7 @@ src/http/http_parser.o: src/http/http_parser.cc.o
 
 # target to build an object file
 src/http/http_parser.cc.o:
-	$(MAKE) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/src/http/http_parser.cc.o
+	$(MAKE) -f CMakeFiles/jhz.dir/build.make CMakeFiles/jhz.dir/src/http/http_parser.cc.o
 .PHONY : src/http/http_parser.cc.o
 
 src/http/http_parser.i: src/http/http_parser.cc.i
@@ -550,7 +550,7 @@ src/http/http_parser.i: src/http/http_parser.cc.i
 
 # target to preprocess a source file
 src/http/http_parser.cc.i:
-	$(MAKE) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/src/http/http_parser.cc.i
+	$(MAKE) -f CMakeFiles/jhz.dir/build.make CMakeFiles/jhz.dir/src/http/http_parser.cc.i
 .PHONY : src/http/http_parser.cc.i
 
 src/http/http_parser.s: src/http/http_parser.cc.s
@@ -559,7 +559,7 @@ src/http/http_parser.s: src/http/http_parser.cc.s
 
 # target to generate assembly for a file
 src/http/http_parser.cc.s:
-	$(MAKE) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/src/http/http_parser.cc.s
+	$(MAKE) -f CMakeFiles/jhz.dir/build.make CMakeFiles/jhz.dir/src/http/http_parser.cc.s
 .PHONY : src/http/http_parser.cc.s
 
 src/http/http_server.o: src/http/http_server.cc.o
@@ -568,7 +568,7 @@ src/http/http_server.o: src/http/http_server.cc.o
 
 # target to build an object file
 src/http/http_server.cc.o:
-	$(MAKE) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/src/http/http_server.cc.o
+	$(MAKE) -f CMakeFiles/jhz.dir/build.make CMakeFiles/jhz.dir/src/http/http_server.cc.o
 .PHONY : src/http/http_server.cc.o
 
 src/http/http_server.i: src/http/http_server.cc.i
@@ -577,7 +577,7 @@ src/http/http_server.i: src/http/http_server.cc.i
 
 # target to preprocess a source file
 src/http/http_server.cc.i:
-	$(MAKE) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/src/http/http_server.cc.i
+	$(MAKE) -f CMakeFiles/jhz.dir/build.make CMakeFiles/jhz.dir/src/http/http_server.cc.i
 .PHONY : src/http/http_server.cc.i
 
 src/http/http_server.s: src/http/http_server.cc.s
@@ -586,7 +586,7 @@ src/http/http_server.s: src/http/http_server.cc.s
 
 # target to generate assembly for a file
 src/http/http_server.cc.s:
-	$(MAKE) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/src/http/http_server.cc.s
+	$(MAKE) -f CMakeFiles/jhz.dir/build.make CMakeFiles/jhz.dir/src/http/http_server.cc.s
 .PHONY : src/http/http_server.cc.s
 
 src/http/http_session.o: src/http/http_session.cc.o
@@ -595,7 +595,7 @@ src/http/http_session.o: src/http/http_session.cc.o
 
 # target to build an object file
 src/http/http_session.cc.o:
-	$(MAKE) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/src/http/http_session.cc.o
+	$(MAKE) -f CMakeFiles/jhz.dir/build.make CMakeFiles/jhz.dir/src/http/http_session.cc.o
 .PHONY : src/http/http_session.cc.o
 
 src/http/http_session.i: src/http/http_session.cc.i
@@ -604,7 +604,7 @@ src/http/http_session.i: src/http/http_session.cc.i
 
 # target to preprocess a source file
 src/http/http_session.cc.i:
-	$(MAKE) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/src/http/http_session.cc.i
+	$(MAKE) -f CMakeFiles/jhz.dir/build.make CMakeFiles/jhz.dir/src/http/http_session.cc.i
 .PHONY : src/http/http_session.cc.i
 
 src/http/http_session.s: src/http/http_session.cc.s
@@ -613,7 +613,7 @@ src/http/http_session.s: src/http/http_session.cc.s
 
 # target to generate assembly for a file
 src/http/http_session.cc.s:
-	$(MAKE) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/src/http/http_session.cc.s
+	$(MAKE) -f CMakeFiles/jhz.dir/build.make CMakeFiles/jhz.dir/src/http/http_session.cc.s
 .PHONY : src/http/http_session.cc.s
 
 src/http/servlet.o: src/http/servlet.cc.o
@@ -622,7 +622,7 @@ src/http/servlet.o: src/http/servlet.cc.o
 
 # target to build an object file
 src/http/servlet.cc.o:
-	$(MAKE) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/src/http/servlet.cc.o
+	$(MAKE) -f CMakeFiles/jhz.dir/build.make CMakeFiles/jhz.dir/src/http/servlet.cc.o
 .PHONY : src/http/servlet.cc.o
 
 src/http/servlet.i: src/http/servlet.cc.i
@@ -631,7 +631,7 @@ src/http/servlet.i: src/http/servlet.cc.i
 
 # target to preprocess a source file
 src/http/servlet.cc.i:
-	$(MAKE) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/src/http/servlet.cc.i
+	$(MAKE) -f CMakeFiles/jhz.dir/build.make CMakeFiles/jhz.dir/src/http/servlet.cc.i
 .PHONY : src/http/servlet.cc.i
 
 src/http/servlet.s: src/http/servlet.cc.s
@@ -640,7 +640,7 @@ src/http/servlet.s: src/http/servlet.cc.s
 
 # target to generate assembly for a file
 src/http/servlet.cc.s:
-	$(MAKE) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/src/http/servlet.cc.s
+	$(MAKE) -f CMakeFiles/jhz.dir/build.make CMakeFiles/jhz.dir/src/http/servlet.cc.s
 .PHONY : src/http/servlet.cc.s
 
 src/iomanager.o: src/iomanager.cc.o
@@ -649,7 +649,7 @@ src/iomanager.o: src/iomanager.cc.o
 
 # target to build an object file
 src/iomanager.cc.o:
-	$(MAKE) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/src/iomanager.cc.o
+	$(MAKE) -f CMakeFiles/jhz.dir/build.make CMakeFiles/jhz.dir/src/iomanager.cc.o
 .PHONY : src/iomanager.cc.o
 
 src/iomanager.i: src/iomanager.cc.i
@@ -658,7 +658,7 @@ src/iomanager.i: src/iomanager.cc.i
 
 # target to preprocess a source file
 src/iomanager.cc.i:
-	$(MAKE) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/src/iomanager.cc.i
+	$(MAKE) -f CMakeFiles/jhz.dir/build.make CMakeFiles/jhz.dir/src/iomanager.cc.i
 .PHONY : src/iomanager.cc.i
 
 src/iomanager.s: src/iomanager.cc.s
@@ -667,7 +667,7 @@ src/iomanager.s: src/iomanager.cc.s
 
 # target to generate assembly for a file
 src/iomanager.cc.s:
-	$(MAKE) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/src/iomanager.cc.s
+	$(MAKE) -f CMakeFiles/jhz.dir/build.make CMakeFiles/jhz.dir/src/iomanager.cc.s
 .PHONY : src/iomanager.cc.s
 
 src/log.o: src/log.cc.o
@@ -676,7 +676,7 @@ src/log.o: src/log.cc.o
 
 # target to build an object file
 src/log.cc.o:
-	$(MAKE) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/src/log.cc.o
+	$(MAKE) -f CMakeFiles/jhz.dir/build.make CMakeFiles/jhz.dir/src/log.cc.o
 .PHONY : src/log.cc.o
 
 src/log.i: src/log.cc.i
@@ -685,7 +685,7 @@ src/log.i: src/log.cc.i
 
 # target to preprocess a source file
 src/log.cc.i:
-	$(MAKE) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/src/log.cc.i
+	$(MAKE) -f CMakeFiles/jhz.dir/build.make CMakeFiles/jhz.dir/src/log.cc.i
 .PHONY : src/log.cc.i
 
 src/log.s: src/log.cc.s
@@ -694,7 +694,7 @@ src/log.s: src/log.cc.s
 
 # target to generate assembly for a file
 src/log.cc.s:
-	$(MAKE) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/src/log.cc.s
+	$(MAKE) -f CMakeFiles/jhz.dir/build.make CMakeFiles/jhz.dir/src/log.cc.s
 .PHONY : src/log.cc.s
 
 src/mutex.o: src/mutex.cc.o
@@ -703,7 +703,7 @@ src/mutex.o: src/mutex.cc.o
 
 # target to build an object file
 src/mutex.cc.o:
-	$(MAKE) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/src/mutex.cc.o
+	$(MAKE) -f CMakeFiles/jhz.dir/build.make CMakeFiles/jhz.dir/src/mutex.cc.o
 .PHONY : src/mutex.cc.o
 
 src/mutex.i: src/mutex.cc.i
@@ -712,7 +712,7 @@ src/mutex.i: src/mutex.cc.i
 
 # target to preprocess a source file
 src/mutex.cc.i:
-	$(MAKE) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/src/mutex.cc.i
+	$(MAKE) -f CMakeFiles/jhz.dir/build.make CMakeFiles/jhz.dir/src/mutex.cc.i
 .PHONY : src/mutex.cc.i
 
 src/mutex.s: src/mutex.cc.s
@@ -721,7 +721,7 @@ src/mutex.s: src/mutex.cc.s
 
 # target to generate assembly for a file
 src/mutex.cc.s:
-	$(MAKE) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/src/mutex.cc.s
+	$(MAKE) -f CMakeFiles/jhz.dir/build.make CMakeFiles/jhz.dir/src/mutex.cc.s
 .PHONY : src/mutex.cc.s
 
 src/scheduler.o: src/scheduler.cc.o
@@ -730,7 +730,7 @@ src/scheduler.o: src/scheduler.cc.o
 
 # target to build an object file
 src/scheduler.cc.o:
-	$(MAKE) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/src/scheduler.cc.o
+	$(MAKE) -f CMakeFiles/jhz.dir/build.make CMakeFiles/jhz.dir/src/scheduler.cc.o
 .PHONY : src/scheduler.cc.o
 
 src/scheduler.i: src/scheduler.cc.i
@@ -739,7 +739,7 @@ src/scheduler.i: src/scheduler.cc.i
 
 # target to preprocess a source file
 src/scheduler.cc.i:
-	$(MAKE) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/src/scheduler.cc.i
+	$(MAKE) -f CMakeFiles/jhz.dir/build.make CMakeFiles/jhz.dir/src/scheduler.cc.i
 .PHONY : src/scheduler.cc.i
 
 src/scheduler.s: src/scheduler.cc.s
@@ -748,7 +748,7 @@ src/scheduler.s: src/scheduler.cc.s
 
 # target to generate assembly for a file
 src/scheduler.cc.s:
-	$(MAKE) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/src/scheduler.cc.s
+	$(MAKE) -f CMakeFiles/jhz.dir/build.make CMakeFiles/jhz.dir/src/scheduler.cc.s
 .PHONY : src/scheduler.cc.s
 
 src/socket.o: src/socket.cc.o
@@ -757,7 +757,7 @@ src/socket.o: src/socket.cc.o
 
 # target to build an object file
 src/socket.cc.o:
-	$(MAKE) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/src/socket.cc.o
+	$(MAKE) -f CMakeFiles/jhz.dir/build.make CMakeFiles/jhz.dir/src/socket.cc.o
 .PHONY : src/socket.cc.o
 
 src/socket.i: src/socket.cc.i
@@ -766,7 +766,7 @@ src/socket.i: src/socket.cc.i
 
 # target to preprocess a source file
 src/socket.cc.i:
-	$(MAKE) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/src/socket.cc.i
+	$(MAKE) -f CMakeFiles/jhz.dir/build.make CMakeFiles/jhz.dir/src/socket.cc.i
 .PHONY : src/socket.cc.i
 
 src/socket.s: src/socket.cc.s
@@ -775,7 +775,7 @@ src/socket.s: src/socket.cc.s
 
 # target to generate assembly for a file
 src/socket.cc.s:
-	$(MAKE) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/src/socket.cc.s
+	$(MAKE) -f CMakeFiles/jhz.dir/build.make CMakeFiles/jhz.dir/src/socket.cc.s
 .PHONY : src/socket.cc.s
 
 src/stream.o: src/stream.cc.o
@@ -784,7 +784,7 @@ src/stream.o: src/stream.cc.o
 
 # target to build an object file
 src/stream.cc.o:
-	$(MAKE) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/src/stream.cc.o
+	$(MAKE) -f CMakeFiles/jhz.dir/build.make CMakeFiles/jhz.dir/src/stream.cc.o
 .PHONY : src/stream.cc.o
 
 src/stream.i: src/stream.cc.i
@@ -793,7 +793,7 @@ src/stream.i: src/stream.cc.i
 
 # target to preprocess a source file
 src/stream.cc.i:
-	$(MAKE) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/src/stream.cc.i
+	$(MAKE) -f CMakeFiles/jhz.dir/build.make CMakeFiles/jhz.dir/src/stream.cc.i
 .PHONY : src/stream.cc.i
 
 src/stream.s: src/stream.cc.s
@@ -802,7 +802,7 @@ src/stream.s: src/stream.cc.s
 
 # target to generate assembly for a file
 src/stream.cc.s:
-	$(MAKE) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/src/stream.cc.s
+	$(MAKE) -f CMakeFiles/jhz.dir/build.make CMakeFiles/jhz.dir/src/stream.cc.s
 .PHONY : src/stream.cc.s
 
 src/streams/socket_stream.o: src/streams/socket_stream.cc.o
@@ -811,7 +811,7 @@ src/streams/socket_stream.o: src/streams/socket_stream.cc.o
 
 # target to build an object file
 src/streams/socket_stream.cc.o:
-	$(MAKE) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/src/streams/socket_stream.cc.o
+	$(MAKE) -f CMakeFiles/jhz.dir/build.make CMakeFiles/jhz.dir/src/streams/socket_stream.cc.o
 .PHONY : src/streams/socket_stream.cc.o
 
 src/streams/socket_stream.i: src/streams/socket_stream.cc.i
@@ -820,7 +820,7 @@ src/streams/socket_stream.i: src/streams/socket_stream.cc.i
 
 # target to preprocess a source file
 src/streams/socket_stream.cc.i:
-	$(MAKE) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/src/streams/socket_stream.cc.i
+	$(MAKE) -f CMakeFiles/jhz.dir/build.make CMakeFiles/jhz.dir/src/streams/socket_stream.cc.i
 .PHONY : src/streams/socket_stream.cc.i
 
 src/streams/socket_stream.s: src/streams/socket_stream.cc.s
@@ -829,7 +829,7 @@ src/streams/socket_stream.s: src/streams/socket_stream.cc.s
 
 # target to generate assembly for a file
 src/streams/socket_stream.cc.s:
-	$(MAKE) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/src/streams/socket_stream.cc.s
+	$(MAKE) -f CMakeFiles/jhz.dir/build.make CMakeFiles/jhz.dir/src/streams/socket_stream.cc.s
 .PHONY : src/streams/socket_stream.cc.s
 
 src/tcp_server.o: src/tcp_server.cc.o
@@ -838,7 +838,7 @@ src/tcp_server.o: src/tcp_server.cc.o
 
 # target to build an object file
 src/tcp_server.cc.o:
-	$(MAKE) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/src/tcp_server.cc.o
+	$(MAKE) -f CMakeFiles/jhz.dir/build.make CMakeFiles/jhz.dir/src/tcp_server.cc.o
 .PHONY : src/tcp_server.cc.o
 
 src/tcp_server.i: src/tcp_server.cc.i
@@ -847,7 +847,7 @@ src/tcp_server.i: src/tcp_server.cc.i
 
 # target to preprocess a source file
 src/tcp_server.cc.i:
-	$(MAKE) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/src/tcp_server.cc.i
+	$(MAKE) -f CMakeFiles/jhz.dir/build.make CMakeFiles/jhz.dir/src/tcp_server.cc.i
 .PHONY : src/tcp_server.cc.i
 
 src/tcp_server.s: src/tcp_server.cc.s
@@ -856,7 +856,7 @@ src/tcp_server.s: src/tcp_server.cc.s
 
 # target to generate assembly for a file
 src/tcp_server.cc.s:
-	$(MAKE) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/src/tcp_server.cc.s
+	$(MAKE) -f CMakeFiles/jhz.dir/build.make CMakeFiles/jhz.dir/src/tcp_server.cc.s
 .PHONY : src/tcp_server.cc.s
 
 src/thread.o: src/thread.cc.o
@@ -865,7 +865,7 @@ src/thread.o: src/thread.cc.o
 
 # target to build an object file
 src/thread.cc.o:
-	$(MAKE) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/src/thread.cc.o
+	$(MAKE) -f CMakeFiles/jhz.dir/build.make CMakeFiles/jhz.dir/src/thread.cc.o
 .PHONY : src/thread.cc.o
 
 src/thread.i: src/thread.cc.i
@@ -874,7 +874,7 @@ src/thread.i: src/thread.cc.i
 
 # target to preprocess a source file
 src/thread.cc.i:
-	$(MAKE) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/src/thread.cc.i
+	$(MAKE) -f CMakeFiles/jhz.dir/build.make CMakeFiles/jhz.dir/src/thread.cc.i
 .PHONY : src/thread.cc.i
 
 src/thread.s: src/thread.cc.s
@@ -883,7 +883,7 @@ src/thread.s: src/thread.cc.s
 
 # target to generate assembly for a file
 src/thread.cc.s:
-	$(MAKE) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/src/thread.cc.s
+	$(MAKE) -f CMakeFiles/jhz.dir/build.make CMakeFiles/jhz.dir/src/thread.cc.s
 .PHONY : src/thread.cc.s
 
 src/timer.o: src/timer.cc.o
@@ -892,7 +892,7 @@ src/timer.o: src/timer.cc.o
 
 # target to build an object file
 src/timer.cc.o:
-	$(MAKE) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/src/timer.cc.o
+	$(MAKE) -f CMakeFiles/jhz.dir/build.make CMakeFiles/jhz.dir/src/timer.cc.o
 .PHONY : src/timer.cc.o
 
 src/timer.i: src/timer.cc.i
@@ -901,7 +901,7 @@ src/timer.i: src/timer.cc.i
 
 # target to preprocess a source file
 src/timer.cc.i:
-	$(MAKE) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/src/timer.cc.i
+	$(MAKE) -f CMakeFiles/jhz.dir/build.make CMakeFiles/jhz.dir/src/timer.cc.i
 .PHONY : src/timer.cc.i
 
 src/timer.s: src/timer.cc.s
@@ -910,7 +910,7 @@ src/timer.s: src/timer.cc.s
 
 # target to generate assembly for a file
 src/timer.cc.s:
-	$(MAKE) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/src/timer.cc.s
+	$(MAKE) -f CMakeFiles/jhz.dir/build.make CMakeFiles/jhz.dir/src/timer.cc.s
 .PHONY : src/timer.cc.s
 
 src/util.o: src/util.cc.o
@@ -919,7 +919,7 @@ src/util.o: src/util.cc.o
 
 # target to build an object file
 src/util.cc.o:
-	$(MAKE) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/src/util.cc.o
+	$(MAKE) -f CMakeFiles/jhz.dir/build.make CMakeFiles/jhz.dir/src/util.cc.o
 .PHONY : src/util.cc.o
 
 src/util.i: src/util.cc.i
@@ -928,7 +928,7 @@ src/util.i: src/util.cc.i
 
 # target to preprocess a source file
 src/util.cc.i:
-	$(MAKE) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/src/util.cc.i
+	$(MAKE) -f CMakeFiles/jhz.dir/build.make CMakeFiles/jhz.dir/src/util.cc.i
 .PHONY : src/util.cc.i
 
 src/util.s: src/util.cc.s
@@ -937,7 +937,7 @@ src/util.s: src/util.cc.s
 
 # target to generate assembly for a file
 src/util.cc.s:
-	$(MAKE) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/src/util.cc.s
+	$(MAKE) -f CMakeFiles/jhz.dir/build.make CMakeFiles/jhz.dir/src/util.cc.s
 .PHONY : src/util.cc.s
 
 tests/test_address.o: tests/test_address.cc.o
@@ -1299,8 +1299,7 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
-	@echo "... sylar"
-	@echo "... test_hook"
+	@echo "... jhz"
 	@echo "... test_scheduler"
 	@echo "... test_config"
 	@echo "... test_bytearray"
@@ -1313,6 +1312,7 @@ help:
 	@echo "... test_iomanager"
 	@echo "... test_tcp_server"
 	@echo "... test_http_parser"
+	@echo "... test_hook"
 	@echo "... src/address.o"
 	@echo "... src/address.i"
 	@echo "... src/address.s"

@@ -1,9 +1,6 @@
-/**
- * @file util.cpp
- * @brief util函数实现
- * @version 0.1
- * @date 2021-06-08
- */
+
+// @brief util函数实现
+
 
 #include <unistd.h>
 #include <string.h>
@@ -19,9 +16,9 @@
 #include "log.h"
 #include "fiber.h"
 
-namespace sylar {
+namespace jhz {
 
-static sylar::Logger::ptr g_logger = SYLAR_LOG_NAME("system");
+static jhz::Logger::ptr g_logger = JHZ_LOG_NAME("system");
 
 pid_t GetThreadId() {
     return syscall(SYS_gettid);
@@ -72,7 +69,7 @@ void Backtrace(std::vector<std::string> &bt, int size, int skip) {
 
     char **strings = backtrace_symbols(array, s);
     if (strings == NULL) {
-        SYLAR_LOG_ERROR(g_logger) << "backtrace_synbols error";
+        JHZ_LOG_ERROR(g_logger) << "backtrace_synbols error";
         return;
     }
 
@@ -556,4 +553,4 @@ std::wstring StringUtil::StringToWString(const std::string& s) {
 }
 
 
-} // namespace sylar
+} // namespace jhz

@@ -1,13 +1,10 @@
-/**
- * @file http.cc
- * @brief HTTP相关方法实现
- * @version 0.1
- * @date 2021-09-24
- */
+
+// @brief HTTP相关方法实现
+
 #include "http.h"
 #include "../util.h"
 
-namespace sylar {
+namespace jhz {
 namespace http {
 
 HttpMethod StringToHttpMethod(const std::string &m) {
@@ -160,7 +157,7 @@ std::string HttpRequest::toString() const {
 
 std::ostream &HttpRequest::dump(std::ostream &os) const {
     //GET /uri HTTP/1.1
-    //Host: wwww.sylar.top
+    //Host: wwww.jhz.top
     //
     //
     os << HttpMethodToString(m_method) << " "
@@ -214,14 +211,14 @@ void HttpRequest::initQueryParam() {
                                                                                                            \
         if (0) {                                                                                           \
             std::cout << "<key>:" << str.substr(last, key - last)                                          \
-                      << " <decoded>:" << sylar::StringUtil::UrlDecode(str.substr(last, key - last))       \
+                      << " <decoded>:" << jhz::StringUtil::UrlDecode(str.substr(last, key - last))       \
                       << " <value>:" << str.substr(key + 1, pos - key - 1)                                 \
-                      << " <decoded>:" << sylar::StringUtil::UrlDecode(str.substr(key + 1, pos - key - 1)) \
+                      << " <decoded>:" << jhz::StringUtil::UrlDecode(str.substr(key + 1, pos - key - 1)) \
                       << std::endl;                                                                        \
         }                                                                                                  \
                                                                                                            \
-        m.insert(std::make_pair(sylar::StringUtil::UrlDecode(trim(str.substr(last, key - last))),          \
-                                sylar::StringUtil::UrlDecode(str.substr(key + 1, pos - key - 1))));        \
+        m.insert(std::make_pair(jhz::StringUtil::UrlDecode(trim(str.substr(last, key - last))),          \
+                                jhz::StringUtil::UrlDecode(str.substr(key + 1, pos - key - 1))));        \
         if (pos == std::string::npos) {                                                                    \
             break;                                                                                         \
         }                                                                                                  \
@@ -254,7 +251,7 @@ void HttpRequest::initCookies() {
         m_parserParamFlag |= 0x4;
         return;
     }
-    PARSE_PARAM(cookie, m_cookies, ';', sylar::StringUtil::Trim);
+    PARSE_PARAM(cookie, m_cookies, ';', jhz::StringUtil::Trim);
     m_parserParamFlag |= 0x4;
 }
 
@@ -300,7 +297,7 @@ void HttpResponse::setCookie(const std::string &key, const std::string &val,
     std::stringstream ss;
     ss << key << "=" << val;
     if (expired > 0) {
-        ss << ";expires=" << sylar::Time2Str(expired, "%a, %d %b %Y %H:%M:%S") << " GMT";
+        ss << ";expires=" << jhz::Time2Str(expired, "%a, %d %b %Y %H:%M:%S") << " GMT";
     }
     if (!domain.empty()) {
         ss << ";domain=" << domain;
@@ -361,4 +358,4 @@ std::ostream &operator<<(std::ostream &os, const HttpResponse &rsp) {
 }
 
 } // namespace http
-} // namespace sylar
+} // namespace jhz

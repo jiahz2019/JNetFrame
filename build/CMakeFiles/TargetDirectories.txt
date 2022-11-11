@@ -1,7 +1,6 @@
 /home/ubuntu/cworkplace/JNetFrame/build/CMakeFiles/rebuild_cache.dir
 /home/ubuntu/cworkplace/JNetFrame/build/CMakeFiles/edit_cache.dir
-/home/ubuntu/cworkplace/JNetFrame/build/CMakeFiles/sylar.dir
-/home/ubuntu/cworkplace/JNetFrame/build/CMakeFiles/test_hook.dir
+/home/ubuntu/cworkplace/JNetFrame/build/CMakeFiles/jhz.dir
 /home/ubuntu/cworkplace/JNetFrame/build/CMakeFiles/test_scheduler.dir
 /home/ubuntu/cworkplace/JNetFrame/build/CMakeFiles/test_config.dir
 /home/ubuntu/cworkplace/JNetFrame/build/CMakeFiles/test_bytearray.dir
@@ -14,3 +13,4 @@
 /home/ubuntu/cworkplace/JNetFrame/build/CMakeFiles/test_iomanager.dir
 /home/ubuntu/cworkplace/JNetFrame/build/CMakeFiles/test_tcp_server.dir
 /home/ubuntu/cworkplace/JNetFrame/build/CMakeFiles/test_http_parser.dir
+/home/ubuntu/cworkplace/JNetFrame/build/CMakeFiles/test_hook.dir

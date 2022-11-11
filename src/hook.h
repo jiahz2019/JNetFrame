@@ -1,14 +1,9 @@
-/**
- * @file hook.h
- * @brief hook函数封装
- * @author sylar.yin
- * @email 564628276@qq.com
- * @date 2019-06-02
- * @copyright Copyright (c) 2019年 sylar.yin All rights reserved (www.sylar.top)
- */
 
-#ifndef __SYLAR_HOOK_H__
-#define __SYLAR_HOOK_H__
+// @brief hook函数封装
+
+
+#ifndef __JHZ_HOOK_H__
+#define __JHZ_HOOK_H__
 
 #include <fcntl.h>
 #include <sys/ioctl.h>
@@ -18,7 +13,7 @@
 #include <time.h>
 #include <unistd.h>
 
-namespace sylar {
+namespace jhz {
     /**
      * @brief 当前线程是否hook
      */

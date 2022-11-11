@@ -1,13 +1,10 @@
-/**
- * @file mutex.cc
- * @brief 信号量实现
- * @version 0.1
- * @date 2021-06-09
- */
+
+//@brief 信号量实现
+
 
 #include "mutex.h"
 
-namespace sylar {
+namespace jhz {
 
 Semaphore::Semaphore(uint32_t count) {
     if(sem_init(&m_semaphore, 0, count)) {
@@ -31,4 +28,4 @@ void Semaphore::notify() {
     }
 }
 
-} // namespace sylar
+} // namespace jhz

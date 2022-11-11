@@ -1,7 +1,7 @@
 #include "servlet.h"
 #include <fnmatch.h>
 
-namespace sylar {
+namespace jhz {
 namespace http {
 
 FunctionServlet::FunctionServlet(callback cb)
@@ -9,9 +9,9 @@ FunctionServlet::FunctionServlet(callback cb)
     ,m_cb(cb) {
 }
 
-int32_t FunctionServlet::handle(sylar::http::HttpRequest::ptr request
-               , sylar::http::HttpResponse::ptr response
-               , sylar::http::HttpSession::ptr session) {
+int32_t FunctionServlet::handle(jhz::http::HttpRequest::ptr request
+               , jhz::http::HttpResponse::ptr response
+               , jhz::http::HttpSession::ptr session) {
     return m_cb(request, response, session);
 }
 
@@ -19,12 +19,12 @@ int32_t FunctionServlet::handle(sylar::http::HttpRequest::ptr request
 
 ServletDispatch::ServletDispatch()
     :Servlet("ServletDispatch") {
-    m_default.reset(new NotFoundServlet("sylar/1.0"));
+    m_default.reset(new NotFoundServlet("jhz/1.0"));
 }
 
-int32_t ServletDispatch::handle(sylar::http::HttpRequest::ptr request
-               , sylar::http::HttpResponse::ptr response
-               , sylar::http::HttpSession::ptr session) {
+int32_t ServletDispatch::handle(jhz::http::HttpRequest::ptr request
+               , jhz::http::HttpResponse::ptr response
+               , jhz::http::HttpSession::ptr session) {
     auto slt = getMatchedServlet(request->getPath());
     if(slt) {
         slt->handle(request, response, session);
@@ -151,11 +151,11 @@ NotFoundServlet::NotFoundServlet(const std::string& name)
 
 }
 
-int32_t NotFoundServlet::handle(sylar::http::HttpRequest::ptr request
-                   , sylar::http::HttpResponse::ptr response
-                   , sylar::http::HttpSession::ptr session) {
-    response->setStatus(sylar::http::HttpStatus::NOT_FOUND);
-    response->setHeader("Server", "sylar/1.0.0");
+int32_t NotFoundServlet::handle(jhz::http::HttpRequest::ptr request
+                   , jhz::http::HttpResponse::ptr response
+                   , jhz::http::HttpSession::ptr session) {
+    response->setStatus(jhz::http::HttpStatus::NOT_FOUND);
+    response->setHeader("Server", "jhz/1.0.0");
     response->setHeader("Content-Type", "text/html");
     response->setBody(m_content);
     return 0;

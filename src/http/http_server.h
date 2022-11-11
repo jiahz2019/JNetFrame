@@ -1,20 +1,15 @@
-/**
- * @file http_server.h
- * @brief HTTP服务器封装
- * @author sylar.yin
- * @email 564628276@qq.com
- * @date 2019-06-09
- * @copyright Copyright (c) 2019年 sylar.yin All rights reserved (www.sylar.top)
- */
 
-#ifndef __SYLAR_HTTP_HTTP_SERVER_H__
-#define __SYLAR_HTTP_HTTP_SERVER_H__
+// @brief HTTP服务器封装
+
+
+#ifndef __JHZ_HTTP_HTTP_SERVER_H__
+#define __JHZ_HTTP_HTTP_SERVER_H__
 
 #include "../tcp_server.h"
 #include "http_session.h"
 #include "servlet.h"
 
-namespace sylar {
+namespace jhz {
 namespace http {
 
 /**
@@ -32,9 +27,9 @@ public:
      * @param[in] accept_worker 接收连接调度器
      */
     HttpServer(bool keepalive = false
-               ,sylar::IOManager* worker = sylar::IOManager::GetThis()
-               ,sylar::IOManager* io_worker = sylar::IOManager::GetThis()
-               ,sylar::IOManager* accept_worker = sylar::IOManager::GetThis());
+               ,jhz::IOManager* worker = jhz::IOManager::GetThis()
+               ,jhz::IOManager* io_worker = jhz::IOManager::GetThis()
+               ,jhz::IOManager* accept_worker = jhz::IOManager::GetThis());
 
     /**
      * @brief 获取ServletDispatch

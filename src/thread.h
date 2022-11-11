@@ -1,17 +1,12 @@
-/**
- * @file thread.h
- * @brief 线程相关的封装
- * @author sylar.yin
- * @email 564628276@qq.com
- * @date 2019-05-31
- * @copyright Copyright (c) 2019年 sylar.yin All rights reserved (www.sylar.top)
- */
-#ifndef __SYLAR_THREAD_H__
-#define __SYLAR_THREAD_H__
+
+// @brief 线程相关的封装
+
+#ifndef __JHZ_THREAD_H__
+#define __JHZ_THREAD_H__
 
 #include "mutex.h"
 
-namespace sylar {
+namespace jhz {
 
 /**
  * @brief 线程类
@@ -83,6 +78,6 @@ private:
     Semaphore m_semaphore;
 };
 
-} // namespace sylar
+} // namespace jhz
 
 #endif

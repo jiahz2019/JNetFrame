@@ -1,13 +1,8 @@
-/**
- * @file socket.h
- * @brief Socket封装
- * @author sylar.yin
- * @email 564628276@qq.com
- * @date 2019-06-05
- * @copyright Copyright (c) 2019年 sylar.yin All rights reserved (www.sylar.top)
- */
-#ifndef __SYLAR_SOCKET_H__
-#define __SYLAR_SOCKET_H__
+
+ // @brief Socket封装
+
+#ifndef __JHZ_SOCKET_H__
+#define __JHZ_SOCKET_H__
 
 #include <memory>
 #include <netinet/tcp.h>
@@ -16,7 +11,7 @@
 #include "address.h"
 #include "noncopyable.h"
 
-namespace sylar {
+namespace jhz {
 
 /**
  * @brief Socket封装类
@@ -52,13 +47,13 @@ public:
      * @brief 创建TCP Socket(满足地址类型)
      * @param[in] address 地址
      */
-    static Socket::ptr CreateTCP(sylar::Address::ptr address);
+    static Socket::ptr CreateTCP(jhz::Address::ptr address);
 
     /**
      * @brief 创建UDP Socket(满足地址类型)
      * @param[in] address 地址
      */
-    static Socket::ptr CreateUDP(sylar::Address::ptr address);
+    static Socket::ptr CreateUDP(jhz::Address::ptr address);
 
     /**
      * @brief 创建IPv4的TCP Socket
@@ -398,6 +393,6 @@ protected:
  */
 std::ostream &operator<<(std::ostream &os, const Socket &sock);
 
-} // namespace sylar
+} // namespace jhz
 
 #endif

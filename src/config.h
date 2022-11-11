@@ -1,13 +1,8 @@
-/**
- * @file config.h
- * @brief 配置模块
- * @author sylar.yin
- * @email 564628276@qq.com
- * @date 2019-05-22
- * @copyright Copyright (c) 2019年 sylar.yin All rights reserved (www.sylar.top)
- */
-#ifndef __SYLAR_CONFIG_H__
-#define __SYLAR_CONFIG_H__
+
+// @brief 配置模块
+
+#ifndef __JHZ_CONFIG_H__
+#define __JHZ_CONFIG_H__
 
 #include <memory>
 #include <string>
@@ -26,7 +21,7 @@
 #include "log.h"
 #include "util.h"
 
-namespace sylar {
+namespace jhz {
 
 /**
  * @brief 配置变量的基类
@@ -354,7 +349,7 @@ public:
             RWMutexType::ReadLock lock(m_mutex);
             return ToStr()(m_val);
         } catch (std::exception &e) {
-            SYLAR_LOG_ERROR(SYLAR_LOG_ROOT()) << "ConfigVar::toString exception "
+            JHZ_LOG_ERROR(JHZ_LOG_ROOT()) << "ConfigVar::toString exception "
                                               << e.what() << " convert: " << TypeToName<T>() << " to string"
                                               << " name=" << m_name;
         }
@@ -369,7 +364,7 @@ public:
         try {
             setValue(FromStr()(val));
         } catch (std::exception &e) {
-            SYLAR_LOG_ERROR(SYLAR_LOG_ROOT()) << "ConfigVar::fromString exception "
+            JHZ_LOG_ERROR(JHZ_LOG_ROOT()) << "ConfigVar::fromString exception "
                                               << e.what() << " convert: string to " << TypeToName<T>()
                                               << " name=" << m_name
                                               << " - " << val;
@@ -482,10 +477,10 @@ public:
         if (it != GetDatas().end()) {
             auto tmp = std::dynamic_pointer_cast<ConfigVar<T>>(it->second);
             if (tmp) {
-                SYLAR_LOG_INFO(SYLAR_LOG_ROOT()) << "Lookup name=" << name << " exists";
+                JHZ_LOG_INFO(JHZ_LOG_ROOT()) << "Lookup name=" << name << " exists";
                 return tmp;
             } else {
-                SYLAR_LOG_ERROR(SYLAR_LOG_ROOT()) << "Lookup name=" << name << " exists but type not "
+                JHZ_LOG_ERROR(JHZ_LOG_ROOT()) << "Lookup name=" << name << " exists but type not "
                                                   << TypeToName<T>() << " real_type=" << it->second->getTypeName()
                                                   << " " << it->second->toString();
                 return nullptr;
@@ -493,7 +488,7 @@ public:
         }
 
         if (name.find_first_not_of("abcdefghikjlmnopqrstuvwxyz._012345678") != std::string::npos) {
-            SYLAR_LOG_ERROR(SYLAR_LOG_ROOT()) << "Lookup name invalid " << name;
+            JHZ_LOG_ERROR(JHZ_LOG_ROOT()) << "Lookup name invalid " << name;
             throw std::invalid_argument(name);
         }
 
@@ -557,6 +552,6 @@ private:
     }
 };
 
-} // namespace sylar
+} // namespace jhz
 
 #endif

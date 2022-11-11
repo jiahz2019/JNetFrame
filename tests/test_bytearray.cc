@@ -1,13 +1,10 @@
-/**
- * @file test_bytearray.cc
- * @brief Bytearray类测试
- * @version 0.1
- * @date 2021-09-18
- */
-#include <algorithm>
-#include "src/sylar.h"
 
-static sylar::Logger::ptr g_logger = SYLAR_LOG_ROOT();
+//@brief Bytearray类测试
+
+#include <algorithm>
+#include "src/jhz.h"
+
+static jhz::Logger::ptr g_logger = JHZ_LOG_ROOT();
 
 
 void test() {
@@ -23,17 +20,17 @@ void test() {
         for (int i = 0; i < len; ++i) {                            \
             vec.push_back(rand());                                 \
         }                                                          \
-        sylar::ByteArray::ptr ba(new sylar::ByteArray(base_len));  \
+        jhz::ByteArray::ptr ba(new jhz::ByteArray(base_len));  \
         for (auto &i : vec) {                                      \
             ba->write_fun(i);                                      \
         }                                                          \
         ba->setPosition(0);                                        \
         for (size_t i = 0; i < vec.size(); ++i) {                  \
             type v = ba->read_fun();                               \
-            SYLAR_ASSERT(v == vec[i]);                             \
+            JHZ_ASSERT(v == vec[i]);                             \
         }                                                          \
-        SYLAR_ASSERT(ba->getReadSize() == 0);                      \
-        SYLAR_LOG_INFO(g_logger) << #write_fun "/" #read_fun       \
+        JHZ_ASSERT(ba->getReadSize() == 0);                      \
+        JHZ_LOG_INFO(g_logger) << #write_fun "/" #read_fun       \
                                                " (" #type ") len=" \
                                  << len                            \
                                  << " base_len=" << base_len       \
@@ -66,29 +63,29 @@ void test() {
         for (int i = 0; i < len; ++i) {                                               \
             vec.push_back(rand());                                                    \
         }                                                                             \
-        sylar::ByteArray::ptr ba(new sylar::ByteArray(base_len));                     \
+        jhz::ByteArray::ptr ba(new jhz::ByteArray(base_len));                     \
         for (auto &i : vec) {                                                         \
             ba->write_fun(i);                                                         \
         }                                                                             \
         ba->setPosition(0);                                                           \
         for (size_t i = 0; i < vec.size(); ++i) {                                     \
             type v = ba->read_fun();                                                  \
-            SYLAR_ASSERT(v == vec[i]);                                                \
+            JHZ_ASSERT(v == vec[i]);                                                \
         }                                                                             \
-        SYLAR_ASSERT(ba->getReadSize() == 0);                                         \
-        SYLAR_LOG_INFO(g_logger) << #write_fun "/" #read_fun                          \
+        JHZ_ASSERT(ba->getReadSize() == 0);                                         \
+        JHZ_LOG_INFO(g_logger) << #write_fun "/" #read_fun                          \
                                                " (" #type ") len="                    \
                                  << len                                               \
                                  << " base_len=" << base_len                          \
                                  << " size=" << ba->getSize();                        \
         ba->setPosition(0);                                                           \
-        SYLAR_ASSERT(ba->writeToFile("/home/ubuntu/cworkplace/RewriteSylar/build/bin/bytearray/"#type "_" #len "-" #read_fun ".dat"));          \
-        sylar::ByteArray::ptr ba2(new sylar::ByteArray(base_len * 2));                \
-        SYLAR_ASSERT(ba2->readFromFile("/home/ubuntu/cworkplace/RewriteSylar/build/bin/bytearray/" #type "_" #len "-" #read_fun ".dat")); \
+        JHZ_ASSERT(ba->writeToFile("/home/ubuntu/cworkplace/RewriteSylar/build/bin/bytearray/"#type "_" #len "-" #read_fun ".dat"));          \
+        jhz::ByteArray::ptr ba2(new jhz::ByteArray(base_len * 2));                \
+        JHZ_ASSERT(ba2->readFromFile("/home/ubuntu/cworkplace/RewriteSylar/build/bin/bytearray/" #type "_" #len "-" #read_fun ".dat")); \
         ba2->setPosition(0);                                                          \
-        SYLAR_ASSERT(ba->toString() == ba2->toString());                              \
-        SYLAR_ASSERT(ba->getPosition() == 0);                                         \
-        SYLAR_ASSERT(ba2->getPosition() == 0);                                        \
+        JHZ_ASSERT(ba->toString() == ba2->toString());                              \
+        JHZ_ASSERT(ba->getPosition() == 0);                                         \
+        JHZ_ASSERT(ba2->getPosition() == 0);                                        \
     }
     XX(int8_t, 100, writeFint8, readFint8, 1);
     XX(uint8_t, 100, writeFuint8, readFuint8, 1);
@@ -116,17 +113,17 @@ void test() {
             random_shuffle(s.begin(), s.end());                   \
             vec.push_back(s);                                     \
         }                                                         \
-        sylar::ByteArray::ptr ba(new sylar::ByteArray(base_len)); \
+        jhz::ByteArray::ptr ba(new jhz::ByteArray(base_len)); \
         for (auto &i : vec) {                                     \
             ba->write_fun(i);                                     \
         }                                                         \
         ba->setPosition(0);                                       \
         for (size_t i = 0; i < vec.size(); ++i) {                 \
             std::string v = ba->read_fun();                       \
-            SYLAR_ASSERT(v == vec[i]);                            \
+            JHZ_ASSERT(v == vec[i]);                            \
         }                                                         \
-        SYLAR_ASSERT(ba->getReadSize() == 0);                     \
-        SYLAR_LOG_INFO(g_logger) << #write_fun "/" #read_fun      \
+        JHZ_ASSERT(ba->getReadSize() == 0);                     \
+        JHZ_LOG_INFO(g_logger) << #write_fun "/" #read_fun      \
                                                " ("               \
                                                "string"           \
                                                ") len="           \

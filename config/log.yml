@@ -9,7 +9,7 @@ logs:
       appenders:
           - type: StdoutLogAppender
           - type: FileLogAppender
-            file: /home/ubuntu/cworkplace/sylar-scratch/build/bin/log/system.txt
+            file: /home/ubuntu/cworkplace/JNetFrame/build/bin/log/system.txt
     - name: http
       level: debug
       appenders:

@@ -1,11 +1,8 @@
-/**
- * @file http.h
- * @brief HTTP定义结构体封装
- * @version 0.1
- * @date 2021-09-24
- */
-#ifndef __SYLAR_HTTP_HTTP_H__
-#define __SYLAR_HTTP_HTTP_H__
+
+// @brief HTTP定义结构体封装
+
+#ifndef __JHZ_HTTP_HTTP_H__
+#define __JHZ_HTTP_HTTP_H__
 
 #include "http-parser/http_parser.h"
 #include <string>
@@ -16,7 +13,7 @@
 #include <memory>
 #include <boost/lexical_cast.hpp>
 
-namespace sylar {
+namespace jhz {
 namespace http {
 
 /**
@@ -712,6 +709,6 @@ std::ostream& operator<<(std::ostream& os, const HttpRequest& req);
 std::ostream& operator<<(std::ostream& os, const HttpResponse& rsp);
 
 } // namespace http
-} // namespace sylar
+} // namespace jhz
 
 #endif

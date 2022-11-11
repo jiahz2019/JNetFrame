@@ -1,13 +1,10 @@
-/**
- * @file test_http_parser.cc
- * @brief 测试HTTP协议解析
- * @version 0.1
- * @date 2021-09-25
- */
-#include "src/sylar.h"
+
+//@brief 测试HTTP协议解析
+
+#include "src/jhz.h"
 
 const char test_request_data[] = "POST /login?aa=bb#sss HTTP/1.1\r\n"
-                                 "Host: www.sylar.top\r\n"
+                                 "Host: www.jhz.top\r\n"
                                  "Content-Length: 10\r\n\r\n"
                                  "1234567890";
 
@@ -37,7 +34,7 @@ const char test_response_data[] = "HTTP/1.1 301 Moved Permanently\r\n"
                                   "</BODY></HTML>\r\n";
 
 void test_request(const char *str) {
-    sylar::http::HttpRequestParser parser;
+    jhz::http::HttpRequestParser parser;
     std::string tmp = str;
     std::cout << "<test_request>:" << std::endl
               << tmp << std::endl;
@@ -45,13 +42,13 @@ void test_request(const char *str) {
     if (parser.hasError()) {
         std::cout << "parser execute fail" << std::endl;
     } else {
-        sylar::http::HttpRequest::ptr req = parser.getData();
+        jhz::http::HttpRequest::ptr req = parser.getData();
         std::cout << req->toString() << std::endl;
     }
 }
 
 void test_response(const char *str) {
-    sylar::http::HttpResponseParser parser;
+    jhz::http::HttpResponseParser parser;
     std::string tmp = str;
     std::cout << "<test_response>:" << std::endl
               << tmp << std::endl;
@@ -59,14 +56,14 @@ void test_response(const char *str) {
     if (parser.hasError()) {
         std::cout << "parser execue fail" << std::endl;
     } else {
-        sylar::http::HttpResponse::ptr rsp = parser.getData();
+        jhz::http::HttpResponse::ptr rsp = parser.getData();
         std::cout << rsp->toString() << std::endl;
     }
 }
 
 int main(int argc, char *argv[]) {
-    sylar::EnvMgr::GetInstance()->init(argc, argv);
-    sylar::Config::LoadFromConfDir(sylar::EnvMgr::GetInstance()->getConfigPath());
+    jhz::EnvMgr::GetInstance()->init(argc, argv);
+    jhz::Config::LoadFromConfDir(jhz::EnvMgr::GetInstance()->getConfigPath());
 
     test_request(test_request_data);
     test_request(test_request_chunked_data);

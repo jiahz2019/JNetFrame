@@ -1,20 +1,15 @@
-/**
- * @file socket_stream.h
- * @brief Socket流式接口封装
- * @author sylar.yin
- * @email 564628276@qq.com
- * @date 2019-06-06
- * @copyright Copyright (c) 2019年 sylar.yin All rights reserved (www.sylar.top)
- */
-#ifndef __SYLAR_SOCKET_STREAM_H__
-#define __SYLAR_SOCKET_STREAM_H__
+
+//@brief Socket流式接口封装
+ 
+#ifndef __JHZ_SOCKET_STREAM_H__
+#define __JHZ_SOCKET_STREAM_H__
 
 #include "../stream.h"
 #include "../socket.h"
 #include "../mutex.h"
 #include "../iomanager.h"
 
-namespace sylar {
+namespace jhz {
 
 /**
  * @brief Socket流

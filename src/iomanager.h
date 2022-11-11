@@ -1,17 +1,13 @@
-/**
- * @file iomanager.h
- * @brief IO协程调度器
- * @version 0.1
- * @date 2021-06-16
- */
 
-#ifndef __SYLAR_IOMANAGER_H__
-#define __SYLAR_IOMANAGER_H__
+ // @brief IO协程调度器
+
+#ifndef __JHZ_IOMANAGER_H__
+#define __JHZ_IOMANAGER_H__
 
 #include "scheduler.h"
 #include "timer.h"
 
-namespace sylar {
+namespace jhz {
 
 class IOManager : public Scheduler, public TimerManager {
 public:
@@ -189,6 +185,6 @@ private:
     std::vector<FdContext *> m_fdContexts;
 };
 
-} // end namespace sylar
+} // end namespace jhz
 
 #endif
